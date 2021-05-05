@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function Character() {
-    return (
-        <div>
-            Character
-        </div>
-    )
+function Character({ character }: any) {
+  return <div>Character</div>;
 }
 
-export default Character
+export default Character;
