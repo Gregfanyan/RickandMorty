@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import Episode from "../../components/Episode";
 
-function Episode() {
-    return (
-        <div>
-            Episode
-        </div>
-    )
+function EpisodePage({ episode }: any) {
+  return (
+    <div>
+      {episode &&
+        episode.map((episodedata: any) => (
+          <Episode key={episodedata.id} episodedata={episodedata} />
+        ))}
+    </div>
+  );
 }
 
-export default Episode
+export default EpisodePage;
