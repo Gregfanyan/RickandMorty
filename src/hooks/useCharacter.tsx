@@ -13,6 +13,5 @@ export function useCharacter() {
       })
       .catch((e) => console.log("error"));
   }, []);
-  console.log(character);
   return [character];
 }

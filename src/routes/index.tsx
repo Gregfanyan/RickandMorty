@@ -1,21 +1,31 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Character from "../pages/Character";
-import Episode from "../pages/Episode";
+import CharacterPage from "../pages/CharacterPage";
+import EpisodePage from "../pages/EpisodePage";
 import SingleCharacter from "../components/SingleCharacter";
 import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
+import { useCharacter } from "../hooks/useCharacter";
 
-const Routes = () => (
-  <>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={Character} />
-      <Route path="/episode" component={Episode} />
-      <Route path="/:id" component={SingleCharacter} />
-      <Route path="/:id" component={SingleEpisode} />
-    </Switch>
-  </>
-);
+const Routes = () => {
+  const [character] = useCharacter();
+
+  return (
+    <>
+      <Header />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          component={() => <CharacterPage character={character} />}
+        />
+        <Route path="/episode" component={EpisodePage} />
+        <Route path="/:id" component={SingleCharacter} />
+        <Route path="/:id" component={SingleEpisode} />
+      </Switch>
+    </>
+  );
+};
+
 export default Routes;
