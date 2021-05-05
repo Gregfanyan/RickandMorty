@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-function Episode({ episodedata }: any) {
-  console.log(episodedata);
+import { EpisodeProps } from "../../types/EpisodeType";
+function Episode({ episodedata }: EpisodeProps) {
   const { name, air_date, episode, id } = episodedata;
   return (
     <div>

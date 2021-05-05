@@ -1,11 +1,13 @@
 import React from "react";
-import Character from "../../components/Character";
 
-function CharacterPage({ character }: any) {
+import Character from "../../components/Character";
+import { CharacterPageProps } from "../../types/CharacterType";
+
+function CharacterPage({ character }: CharacterPageProps) {
   return (
     <div>
       {character &&
-        character.map((char: any) => <Character key={char.id} char={char} />)}
+        character.map((char) => <Character key={char.id} char={char} />)}
     </div>
   );
 }

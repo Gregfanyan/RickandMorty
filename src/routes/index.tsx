@@ -12,7 +12,7 @@ import { useEpisode } from "../hooks/useEpisode";
 const Routes = () => {
   const [character] = useCharacter();
   const [episode] = useEpisode();
-
+  console.log(useCharacter());
   return (
     <>
       <Header />

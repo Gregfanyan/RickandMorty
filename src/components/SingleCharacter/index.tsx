@@ -1,12 +1,14 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
 
-function SingleCharacter({ character }: any) {
-  const { id } = useParams<any>();
+import { useParams, useHistory } from "react-router-dom";
+import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
+
+function SingleCharacter({ character }: SingleCharacterProps) {
+  const { id } = useParams<IdProps>();
   const history = useHistory();
 
   const singleCharacter = character.find(
-    (char: any) => char.id.toString() === id
+    (char: IdProps) => char.id.toString() === id
   );
   const { image, name, status } = singleCharacter;
 

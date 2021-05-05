@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-function Character({ char }: any) {
+import { CharacterProps } from "../../types/CharacterType";
+function Character({ char }: CharacterProps) {
   const { image, name, status, id } = char;
   return (
     <div>

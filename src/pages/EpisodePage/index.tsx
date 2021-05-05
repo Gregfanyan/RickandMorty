@@ -1,11 +1,11 @@
 import React from "react";
 import Episode from "../../components/Episode";
-
-function EpisodePage({ episode }: any) {
+import { EpisodePageProps } from "../../types/EpisodeType";
+function EpisodePage({ episode }: EpisodePageProps) {
   return (
     <div>
       {episode &&
-        episode.map((episodedata: any) => (
+        episode.map((episodedata) => (
           <Episode key={episodedata.id} episodedata={episodedata} />
         ))}
     </div>

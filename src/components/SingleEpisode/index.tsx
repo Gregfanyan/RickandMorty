@@ -1,19 +1,19 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function SingleEpisode({ episodeData }: any) {
+import { IdProps } from "../../types/CharacterType";
+import { SingleEpisodeProps } from "../../types/EpisodeType";
 
-  console.log("episodeData", episodeData);
-  const { id } = useParams<any>();
+function SingleEpisode({ episodeData }: SingleEpisodeProps) {
+  const { id } = useParams<IdProps>();
   const history = useHistory();
 
   const singleEpisode = episodeData.find(
-    (episodeItem: any) => episodeItem.id.toString() === id
+    (episodeItem: IdProps) => episodeItem.id.toString() === id
   );
 
   const { name, air_date, episode } = singleEpisode;
-  console.log("singleEpisode", singleEpisode);
-  
+
   function handleClick() {
     if (!history) {
       return <div>No Episode</div>;

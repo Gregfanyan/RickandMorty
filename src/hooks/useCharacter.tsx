@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { characterUrl } from "../api/api";
-
+import { CharacterType } from "../types/CharacterType";
 export function useCharacter() {
-  const [character, setCharacter] = useState([]);
+  const [character, setCharacter] = useState<CharacterType[]>([]);
 
   useEffect(() => {
     axios
