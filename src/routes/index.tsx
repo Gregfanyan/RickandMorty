@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Character from "../components/Character";
-import Episode from "../components/Episode";
+import Character from "../pages/Character";
+import Episode from "../pages/Episode";
 import SingleCharacter from "../components/SingleCharacter";
 import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
