@@ -21,7 +21,10 @@ const Routes = () => {
           component={() => <CharacterPage character={character} />}
         />
         <Route path="/episode" component={EpisodePage} />
-        <Route path="/:id" component={SingleCharacter} />
+        <Route
+          path="/:id"
+          component={() => <SingleCharacter character={character} />}
+        />
         <Route path="/:id" component={SingleEpisode} />
       </Switch>
     </>
