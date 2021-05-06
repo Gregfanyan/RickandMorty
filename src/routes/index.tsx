@@ -6,15 +6,11 @@ import EpisodePage from "../pages/EpisodePage";
 import SingleCharacter from "../components/SingleCharacter";
 import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
-import { useCharacter } from "../hooks/useCharacter";
-import { useEpisode } from "../hooks/useEpisode";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 
 const Routes = () => {
-  const [character] = useCharacter();
-  const [episode] = useEpisode();
   const data = useCharAndEpisodes();
-  console.log("data", data);
+
   return (
     <>
       <Header />

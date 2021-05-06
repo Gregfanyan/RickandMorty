@@ -5,10 +5,11 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 
 import App from "./App";
+import { baseUrl } from "./api/api";
 import "./index.css";
 
 const client: any = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
+  uri: baseUrl,
 });
 
 ReactDOM.render(

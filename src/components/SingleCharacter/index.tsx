@@ -6,6 +6,7 @@ import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
+  console.log("singleCharacter", character);
 
   const singleCharacter = character.characters.results.find(
     (char: IdProps) => char.id.toString() === id
@@ -31,11 +32,11 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         </li>
         <li>{name}</li>
         <li>{status}</li>
-        {/*  <li>
+        <li>
           {episode.map((e: any) => (
-            <li key={e}>{e}</li>
+            <li key={e}>{e.episode}</li>
           ))}
-        </li> */}
+        </li>
       </ul>
     </div>
   );
