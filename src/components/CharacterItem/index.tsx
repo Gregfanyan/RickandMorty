@@ -5,17 +5,17 @@ function CharacterItem({ character }: any) {
   const { id } = useParams<any>();
   const history = useHistory();
 
-  const characters = character.episodes.results.map((a: any) =>
+  const characters = character?.episodes?.results.map((a: any) =>
     a.characters.map((char: any) => char)
   );
 
-  const characterArray = characters.reduce((acc: any, curr: any) => {
+  const characterArray = characters?.reduce((acc: any, curr: any) => {
     return [...acc, ...curr];
   });
 
-  const singleCharacter = characterArray.find((char: any) => char.id === id);
+  const singleCharacter = characterArray?.find((char: any) => char.id === id);
 
-  const { name, image, status } = singleCharacter;
+  const { name, image, status } = singleCharacter || {};
 
   function handleClick() {
     if (!history) {

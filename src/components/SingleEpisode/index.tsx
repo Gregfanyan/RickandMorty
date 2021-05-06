@@ -8,11 +8,11 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const singleEpisode = episodeData.episodes.results.find(
+  const singleEpisode = episodeData?.episodes?.results.find(
     (episodeItem: IdProps) => episodeItem.id.toString() === id
   );
 
-  const { name, air_date, episode, characters } = singleEpisode;
+  const { name, air_date, episode, characters } = singleEpisode || {};
 
   function handleClick() {
     if (!history) {
@@ -30,13 +30,14 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
         <li>{episode}</li>
         <li>{air_date}</li>
         <ul>
-          {characters.map((e: any) => (
-            <li key={e.id}>
-              <Link to={`/characteritem/${e.id}`}>
-                <div>{e.name}</div>
-              </Link>
-            </li>
-          ))}
+          {characters &&
+            characters.map((e: any) => (
+              <li key={e.id}>
+                <Link to={`/characteritem/${e.id}`}>
+                  <div>{e.name}</div>
+                </Link>
+              </li>
+            ))}
         </ul>
       </ul>
     </div>
