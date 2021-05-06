@@ -10,7 +10,7 @@ function SingleCharacter({ character }: SingleCharacterProps) {
   const singleCharacter = character.find(
     (char: IdProps) => char.id.toString() === id
   );
-  const { image, name, status } = singleCharacter;
+  const { image, name, status, episode } = singleCharacter;
 
   function handleClick() {
     if (!history) {
@@ -19,6 +19,8 @@ function SingleCharacter({ character }: SingleCharacterProps) {
       history.push("/");
     }
   }
+
+  console.log("singleCharacter", singleCharacter);
 
   return (
     <div>
@@ -29,6 +31,11 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         </li>
         <li>{name}</li>
         <li>{status}</li>
+        <li>
+          {episode.map((e: any) => (
+            <li key={e}>{e}</li>
+          ))}
+        </li>
       </ul>
     </div>
   );

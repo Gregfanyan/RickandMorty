@@ -1,8 +1,8 @@
 export type EpisodeType = {
-  air_date: any;
-  name: any;
-  episode: any;
-  id: any;
+  air_date: string;
+  name: string;
+  episode: string;
+  id: number;
 };
 
 export type EpisodePageProps = {
