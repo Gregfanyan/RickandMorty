@@ -4,7 +4,6 @@ import Character from "../../components/Character";
 import { CharacterPageProps } from "../../types/CharacterType";
 
 function CharacterPage({ character }: CharacterPageProps) {
-  console.log("character", character);
   return (
     <div>
       {character &&

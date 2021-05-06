@@ -7,7 +7,7 @@ import SingleCharacter from "../components/SingleCharacter";
 import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
-
+import EpisodeItem from "../components/EpisodeItem";
 const Routes = () => {
   const data = useCharAndEpisodes();
 
@@ -23,6 +23,10 @@ const Routes = () => {
         <Route
           path="/episode"
           component={() => <EpisodePage episode={data} />}
+        />
+        <Route
+          path="/episodeitem/:episode"
+          component={() => <EpisodeItem episodeData={data} />}
         />
         <Route
           path="/episodeid/:id"

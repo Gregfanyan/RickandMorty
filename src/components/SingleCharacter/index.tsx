@@ -1,12 +1,11 @@
 import React from "react";
+import { useParams, useHistory, Link } from "react-router-dom";
 
-import { useParams, useHistory } from "react-router-dom";
 import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 
 function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
-  console.log("singleCharacter", character);
 
   const singleCharacter = character.characters.results.find(
     (char: IdProps) => char.id.toString() === id
@@ -21,8 +20,6 @@ function SingleCharacter({ character }: SingleCharacterProps) {
     }
   }
 
-  console.log("singleCharacter", singleCharacter);
-
   return (
     <div>
       <button onClick={handleClick}>Back</button>
@@ -32,11 +29,16 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         </li>
         <li>{name}</li>
         <li>{status}</li>
-        <li>
+        <ul>
           {episode.map((e: any) => (
-            <li key={e}>{e.episode}</li>
+            <li key={e.episode}>
+              (
+              <Link to={`/episodeitem/${e.episode}`}>
+                <div>{e.episode})</div>
+              </Link>
+            </li>
           ))}
-        </li>
+        </ul>
       </ul>
     </div>
   );
