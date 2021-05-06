@@ -16,3 +16,7 @@ export type EpisodeProps = {
 export type SingleEpisodeProps = {
   episodeData: EpisodeType[] | any;
 };
+
+export type episodedProps = {
+  episode: string;
+};

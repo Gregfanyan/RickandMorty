@@ -6,7 +6,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 
 import App from "./App";
 import { baseUrl } from "./api/api";
-import "./index.css";
+import GlobalStyles from "./GlobalStyles";
 
 const client: any = new ApolloClient({
   uri: baseUrl,
@@ -15,6 +15,7 @@ const client: any = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
+      <GlobalStyles />
       <App />
     </Router>
   </ApolloProvider>,

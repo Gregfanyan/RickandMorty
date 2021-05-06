@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-//import { IdProps } from "../../types/CharacterType";
+import { episodedProps } from "../../types/EpisodeType";
 
 function EpisodeItem({ episodeData }: any) {
-  const { episode } = useParams<any>();
+  const { episode } = useParams<episodedProps>();
   const history = useHistory();
 
   const singleEpisode = episodeData?.episodes?.results.find(
@@ -22,10 +22,12 @@ function EpisodeItem({ episodeData }: any) {
   return (
     <>
       <button onClick={handleClick}>Back</button>
-      {singleEpisode && <div>
-        <div>{singleEpisode.name}</div>
-        <div>{singleEpisode.air_date}</div>
-      </div>}
+      {singleEpisode && (
+        <div>
+          <div>{singleEpisode.name}</div>
+          <div>{singleEpisode.air_date}</div>
+        </div>
+      )}
     </>
   );
 }

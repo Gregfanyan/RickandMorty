@@ -1,8 +1,10 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function CharacterItem({ character }: any) {
-  const { id } = useParams<any>();
+import { IdProps, SingleCharacterProps } from "../../types/CharacterType";
+
+function CharacterItem({ character }: SingleCharacterProps) {
+  const { id } = useParams<IdProps>();
   const history = useHistory();
 
   const characters = character?.episodes?.results.map((a: any) =>
