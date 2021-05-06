@@ -8,7 +8,7 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const singleEpisode = episodeData.find(
+  const singleEpisode = episodeData.episodes.results.find(
     (episodeItem: IdProps) => episodeItem.id.toString() === id
   );
 

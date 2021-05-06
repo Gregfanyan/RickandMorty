@@ -7,7 +7,7 @@ function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const singleCharacter = character.find(
+  const singleCharacter = character.characters.results.find(
     (char: IdProps) => char.id.toString() === id
   );
   const { image, name, status, episode } = singleCharacter;
@@ -31,11 +31,11 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         </li>
         <li>{name}</li>
         <li>{status}</li>
-        <li>
+        {/*  <li>
           {episode.map((e: any) => (
             <li key={e}>{e}</li>
           ))}
-        </li>
+        </li> */}
       </ul>
     </div>
   );

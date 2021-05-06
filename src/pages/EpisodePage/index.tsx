@@ -4,8 +4,8 @@ import { EpisodePageProps } from "../../types/EpisodeType";
 function EpisodePage({ episode }: EpisodePageProps) {
   return (
     <div>
-      {episode &&
-        episode.map((episodedata) => (
+      {episode.episodes.results &&
+        episode.episodes.results.map((episodedata: any) => (
           <Episode key={episodedata.id} episodedata={episodedata} />
         ))}
     </div>

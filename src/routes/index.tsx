@@ -8,10 +8,13 @@ import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
 import { useCharacter } from "../hooks/useCharacter";
 import { useEpisode } from "../hooks/useEpisode";
+import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 
 const Routes = () => {
   const [character] = useCharacter();
   const [episode] = useEpisode();
+  const data = useCharAndEpisodes();
+  console.log("data", data);
   return (
     <>
       <Header />
@@ -19,19 +22,19 @@ const Routes = () => {
         <Route
           exact
           path="/"
-          component={() => <CharacterPage character={character} />}
+          component={() => <CharacterPage character={data} />}
         />
         <Route
           path="/episode"
-          component={() => <EpisodePage episode={episode} />}
+          component={() => <EpisodePage episode={data} />}
         />
         <Route
           path="/episodeid/:id"
-          component={() => <SingleEpisode episodeData={episode} />}
+          component={() => <SingleEpisode episodeData={data} />}
         />
         <Route
           path="/:id"
-          component={() => <SingleCharacter character={character} />}
+          component={() => <SingleCharacter character={data} />}
         />
       </Switch>
     </>

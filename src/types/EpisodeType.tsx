@@ -6,7 +6,7 @@ export type EpisodeType = {
 };
 
 export type EpisodePageProps = {
-  episode: EpisodeType[];
+  episode: EpisodeType[] | any;
 };
 
 export type EpisodeProps = {
@@ -16,4 +16,3 @@ export type EpisodeProps = {
 export type SingleEpisodeProps = {
   episodeData: EpisodeType[] | any;
 };
-
