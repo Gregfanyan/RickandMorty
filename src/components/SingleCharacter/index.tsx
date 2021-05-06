@@ -6,7 +6,6 @@ import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
-
   const singleCharacter = character.characters.results.find(
     (char: IdProps) => char.id.toString() === id
   );
