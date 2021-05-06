@@ -8,6 +8,7 @@ function CharacterPage({ character }: CharacterPageProps) {
     <div>
       {character &&
         character.characters &&
+        character.characters.results &&
         character.characters.results.map((char: any) => (
           <Character key={char.id} char={char} />
         ))}

@@ -6,9 +6,10 @@ import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
-  const singleCharacter = character.characters.results.find(
-    (char: IdProps) => char.id.toString() === id
-  );
+  const singleCharacter =
+    character.characters.results.find(
+      (char: IdProps) => char.id.toString() === id
+    );
   const { image, name, status, episode } = singleCharacter;
 
   function handleClick() {
@@ -31,9 +32,8 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         <ul>
           {episode.map((e: any) => (
             <li key={e.episode}>
-              (
               <Link to={`/episodeitem/${e.episode}`}>
-                <div>{e.episode})</div>
+                <div>{e.episode}</div>
               </Link>
             </li>
           ))}

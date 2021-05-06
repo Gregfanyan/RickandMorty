@@ -10,7 +10,7 @@ function EpisodeItem({ episodeData }: any) {
   console.log("episodeData", episodeData);
 
   const singleEpisode = episodeData.episodes.results.find(
-    (char: any) => char.episode === episode
+    (e: any) => e.episode === episode
   );
 
   function handleClick() {

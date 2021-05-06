@@ -21,7 +21,6 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
       history.push("/episode");
     }
   }
-  console.log("singleEpisode", singleEpisode);
 
   return (
     <div>
@@ -32,10 +31,9 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
         <li>{air_date}</li>
         <ul>
           {characters.map((e: any) => (
-            <li key={e.episode}>
-              (
-              <Link to={`/episodeitem/${e.id}`}>
-                <div>{e.name})</div>
+            <li key={e.id}>
+              <Link to={`/characteritem/${e.id}`}>
+                <div>{e.name}</div>
               </Link>
             </li>
           ))}
