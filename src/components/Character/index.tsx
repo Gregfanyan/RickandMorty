@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 //import { CharacterProps } from "../../types/CharacterType";
-import "../../App.css";
-import classNames from "classnames";
 import * as S from "./styles";
 
 const LinkElem = styled(Link)`
@@ -13,21 +11,16 @@ const LinkElem = styled(Link)`
 function Character({ char, isLiked, likeBtnHandleClick }: any) {
   const { image, name, status, id, origin, location, episode } = char;
 
-  const likeBtnClasses = classNames({
-    heart: true,
-    liked: isLiked,
-  });
-
   return (
     <S.Wrapper>
       {char && (
         <S.Section>
-          <button
-            className={likeBtnClasses}
+          <S.StyledButton
+            isLiked={!isLiked}
             onClick={() => likeBtnHandleClick(id)}
           >
             <i className="fas fa-heart fa-2x"></i>
-          </button>
+          </S.StyledButton>
           <S.ProfilePicture src={image} alt={name} />
 
           <S.Status alive={status === "Alive"}>{char.status}</S.Status>

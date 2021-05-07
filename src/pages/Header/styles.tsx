@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const NavBar = styled.section`
   overflow: hidden;
@@ -8,18 +9,17 @@ export const NavBar = styled.section`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  min-height: 8vh;
+  min-width: 100%;
+  min-height: 10vh;
   position: sticky;
   top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
   z-index: 1;
 
   @media screen and (max-width: 726px) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
-    grid-gap: 5px;
   }
 `;
 
@@ -63,4 +63,14 @@ export const MenuItem = styled.div`
   font-size: 15px;
   color: rgb(226, 226, 226);
   font-weight: bold;
+`;
+
+export const LinkElem = styled(NavLink)`
+  &.active {
+    color: rgb(226, 226, 226);
+  }
+`;
+
+export const TitleLink = styled(NavLink)`
+  text-decoration: none;
 `;

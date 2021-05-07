@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 
 export const CharacterSection = styled.div`
-  width: 100%;
+  min-width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  grid-gap: 30px;
+  grid-gap: 10px;
 
   @media screen and (max-width: 1024px) {
     display: grid;
