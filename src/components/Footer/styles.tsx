@@ -11,7 +11,6 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 8vh;
   position: sticky;
-  bottom: 0;
 `;
 
 export const Title = styled.div`

@@ -11,12 +11,12 @@ const LinkElem = styled(Link)`
   text-decoration: none;
 `;
 
-function Character({ char }: CharacterProps) {
-  const [isLiked, setIsLiked] = useState(false);
+function Character({ char, setLikedList, isLiked}: any) {
+  //const [isLiked, setIsgLiked] = useState(false);
   const { image, name, status, id, origin, location, episode } = char;
 
   const likeBtnHandleClick = () => {
-    setIsLiked(!isLiked);
+    setLikedList((prev: string[]) => prev.push(id));
   };
 
   const likeBtnClasses = classNames({
