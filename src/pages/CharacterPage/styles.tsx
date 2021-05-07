@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const CharacterSection = styled.div`
-  width: 100%;
+  min-width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;

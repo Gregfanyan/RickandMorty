@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
+import { /* SingleCharacterProps, */ IdProps } from "../../types/CharacterType";
 import classNames from "classnames";
 import "../../App.css";
 

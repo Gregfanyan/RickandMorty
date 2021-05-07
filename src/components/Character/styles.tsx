@@ -24,6 +24,20 @@ export const Status = styled.div<{ alive: boolean }>`
     alive ? `rgba(76, 227, 100, 0.5)` : `rgba(227, 76, 76, 0.5)`};
 `;
 
+export const StyledButton = styled.button<{ isLiked: boolean }>`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  padding: none;
+  border: none;
+  outline: inherit;
+  background: none;
+  font-size-adjust: initial;
+  color: yellow;
+  color: ${({ isLiked }) => (isLiked ? `#FBEF3C` : `#F34423`)};
+`;
+
 export const Location = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -53,27 +67,6 @@ export const Section = styled.section`
 
   span {
     margin-bottom: 10px;
-  }
-`;
-
-export const Heart = styled.button`
-   {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    padding: none;
-    border: none;
-    outline: inherit;
-    background: none;
-    font-size-adjust: initial;
-    color: yellow;
-  }
-`;
-
-export const Liked = styled.button`
-   {
-    color: red;
   }
 `;
 
