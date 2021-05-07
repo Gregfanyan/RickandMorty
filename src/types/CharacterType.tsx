@@ -10,6 +10,8 @@ export type CharacterType = {
 
 export type CharacterPageProps = {
   character: CharacterType[] | any;
+  likedList: string[];
+  setLikedList: any;
 };
 
 export type SingleCharacterProps = {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { CharacterProps } from "../../types/CharacterType";
 import styled from "styled-components";
+import localforage from "localforage";
 
+import { CharacterProps } from "../../types/CharacterType";
 import "../../App.css";
 import classNames from "classnames";
 import * as S from "./styles";
@@ -11,12 +12,17 @@ const LinkElem = styled(Link)`
   text-decoration: none;
 `;
 
-function Character({ char, setLikedList, isLiked}: any) {
+function Character({ char, setLikedList, isLiked }: any) {
   //const [isLiked, setIsgLiked] = useState(false);
   const { image, name, status, id, origin, location, episode } = char;
 
   const likeBtnHandleClick = () => {
-    setLikedList((prev: string[]) => prev.push(id));
+    setLikedList((prev: string[]) => {
+      const newState = [...prev, id];
+      // localStorage.setItem('likedItem', JSON.stringify(newState))
+      localforage.setItem("likedItem", newState);
+      return newState;
+    });
   };
 
   const likeBtnClasses = classNames({

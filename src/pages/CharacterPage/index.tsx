@@ -5,26 +5,18 @@ import Character from "../../components/Character";
 import { CharacterPageProps } from "../../types/CharacterType";
 import * as S from "./styles";
 
-function CharacterPage({ character }: CharacterPageProps) {
-  console.log("character", character);
+function CharacterPage({ character }: any) {
   const [likedList, setLikedList] = React.useState<string[]>([]);
 
   React.useEffect(() => {
-    localforage.setItem("likedItem", likedList);
-  }, [likedList]);
-
-  React.useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
-      console.log("val", val);
       if (!val) {
         setLikedList([]);
       } else {
-        console.log("likedList", likedList);
         setLikedList(val as string[]);
       }
     });
   }, []);
-
   return (
     <S.CharacterSection>
       {character &&
