@@ -5,23 +5,13 @@ import styled from "styled-components";
 
 import "../../App.css";
 import classNames from "classnames";
-import {
-  ProfilePicture,
-  Section,
-  Status,
-  Name,
-  Location,
-  LocationTitle,
-  Heart,
-  Liked,
-  Wrapper,
-} from "./styles";
+import * as S from "./styles";
 
 const LinkElem = styled(Link)`
   text-decoration: none;
 `;
 
-function Character({ char }: any) {
+function Character({ char }: CharacterProps) {
   const [isLiked, setIsLiked] = useState(false);
   const { image, name, status, id, origin, location, episode } = char;
 
@@ -35,34 +25,34 @@ function Character({ char }: any) {
   });
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       {char && (
-        <Section>
+        <S.Section>
           <button className={likeBtnClasses} onClick={likeBtnHandleClick}>
             <i className="fas fa-heart fa-2x"></i>
           </button>
-          <ProfilePicture className="lol" src={image} alt={name} />
+          <S.ProfilePicture className="lol" src={image} alt={name} />
 
-          <Status alive={status === "Alive"}>{char.status}</Status>
+          <S.Status alive={status === "Alive"}>{char.status}</S.Status>
           <LinkElem to={`/${id}`}>
-            <Name>{name}</Name>
+            <S.Name>{name}</S.Name>
           </LinkElem>
           <span>
             In {episode.length} episode
             {episode.length === 1 ? "" : "s"}
           </span>
-          <Location>
+          <S.Location>
             <span>
-              <LocationTitle>Origin</LocationTitle> {origin.name}
+              <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
             </span>
             <span>
-              <LocationTitle>Lives</LocationTitle>
+              <S.LocationTitle>Lives</S.LocationTitle>
               {location.name}
             </span>
-          </Location>
-        </Section>
+          </S.Location>
+        </S.Section>
       )}
-    </Wrapper>
+    </S.Wrapper>
   );
 }
 

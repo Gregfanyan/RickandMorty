@@ -3,6 +3,9 @@ export type CharacterType = {
   name: string;
   status: string;
   id: number;
+  location: any;
+  episode: any;
+  origin: any;
 };
 
 export type CharacterPageProps = {
@@ -18,7 +21,5 @@ export type CharacterProps = {
 };
 
 export type IdProps = {
-    id: string
-}
-
-
+  id: string;
+};

@@ -8,7 +8,9 @@ import SingleEpisode from "../components/SingleEpisode";
 import Header from "../pages/Header";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 import EpisodeItem from "../components/EpisodeItem";
-import CharacterItem from '../components/CharacterItem'
+import CharacterItem from "../components/CharacterItem";
+import Footer from "../components/Footer";
+
 const Routes = () => {
   const data = useCharAndEpisodes();
 
@@ -25,7 +27,7 @@ const Routes = () => {
           path="/episode"
           component={() => <EpisodePage episode={data} />}
         />
-          <Route
+        <Route
           path="/characteritem/:id"
           component={() => <CharacterItem character={data} />}
         />
@@ -42,6 +44,7 @@ const Routes = () => {
           component={() => <SingleCharacter character={data} />}
         />
       </Switch>
+      <Footer />
     </>
   );
 };
