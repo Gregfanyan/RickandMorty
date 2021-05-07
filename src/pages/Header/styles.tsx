@@ -13,7 +13,7 @@ export const NavBar = styled.section`
   min-height: 10vh;
   position: sticky;
   top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
   z-index: 1;
 
   @media screen and (max-width: 726px) {

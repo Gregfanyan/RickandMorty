@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export const ProfilePicture = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
 `;
 
@@ -59,27 +59,66 @@ export const Section = styled.section`
   box-shadow: -5px 7px 11px black;
   background: #f3f3f3;
   border-radius: 30px;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 350px;
+  justify-content: center;
+  min-width: 300px;
   margin: 10px auto;
 
   span {
     margin-bottom: 10px;
   }
-  @media screen and (max-width: 1024px) {
-    min-width: 300px;
-  }
 `;
 
 export const Wrapper = styled.main`
-  width: 90%;
+  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 `;
 
-export const LinkElem = styled(Link)`
-  text-decoration: none;
+export const ReturnButton = styled.button`
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -33px;
+  left: 0;
+  width: 70px;
+  border: none;
+  background: rgb(87, 32, 155);
+  border-radius: 15px;
+  cursor: pointer;
+
+  i {
+    color: rgb(226, 226, 226);
+  }
+`;
+
+export const EpisodeSection = styled.div`
+  position: relative;
+  box-shadow: -5px 7px 11px black;
+  background: #f3f3f3;
+  border-radius: 30px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(100px, 1fr));
+  justify-items: center;
+  align-items: center;
+  max-width: 426px;
+  max-height: 300px;
+  margin: 10px auto;
+  overflow: auto;
+`;
+
+export const EpisodeList = styled.div`
+  display: inline-block;
+  align-items: center;
+  align-self: center;
+  font-size: 14px;
+  font-style: italic;
+  word-break: break-word;
+  text-align: justify;
+  padding: 20px;
 `;

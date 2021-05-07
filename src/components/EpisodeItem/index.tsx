@@ -10,6 +10,7 @@ function EpisodeItem({ episodeData }: any) {
   const singleEpisode = episodeData?.episodes?.results.find(
     (e: any) => e.episode === episode
   );
+  console.log("singleEpisode", singleEpisode);
 
   function handleClick() {
     if (!history) {
@@ -22,11 +23,13 @@ function EpisodeItem({ episodeData }: any) {
   return (
     <>
       <button onClick={handleClick}>Back</button>
-      {singleEpisode && (
+      {singleEpisode ? (
         <div>
-          <div>{singleEpisode.name}</div>
-          <div>{singleEpisode.air_date}</div>
+          <h1>Episode Name: {singleEpisode.name}</h1>
+          <h2>Created at: {singleEpisode.air_date}</h2>
         </div>
+      ) : (
+        <h1>No Episode for this Character</h1>
       )}
     </>
   );
