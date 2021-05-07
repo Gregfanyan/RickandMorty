@@ -11,6 +11,12 @@ const DATA_QUERY = gql`
         id
         status
         image
+        location {
+          name
+        }
+        origin {
+          name
+        }
         episode {
           episode
         }

@@ -13,7 +13,7 @@ function Header() {
   return (
     <S.NavBar>
       <Link to="/">
-        <S.Title>Title</S.Title>
+        <S.Title>Rick and Morty</S.Title>
       </Link>
       <S.NavLinks>
         <li>

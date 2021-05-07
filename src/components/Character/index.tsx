@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CharacterProps } from "../../types/CharacterType";
+import styled from "styled-components";
+
 import "../../App.css";
 import classNames from "classnames";
+import {
+  ProfilePicture,
+  Section,
+  Status,
+  Name,
+  Location,
+  LocationTitle,
+  Heart,
+  Liked,
+  Wrapper,
+} from "./styles";
 
-function Character({ char }: CharacterProps) {
+const LinkElem = styled(Link)`
+  text-decoration: none;
+`;
+
+function Character({ char }: any) {
   const [isLiked, setIsLiked] = useState(false);
-  const { image, name, status, id } = char;
+  const { image, name, status, id, origin, location, episode } = char;
 
   const likeBtnHandleClick = () => {
     setIsLiked(!isLiked);
@@ -18,20 +35,34 @@ function Character({ char }: CharacterProps) {
   });
 
   return (
-    <div>
-      <ul>
-        <li className="imageBlock">
-          <img src={image} alt={name} />
+    <Wrapper>
+      {char && (
+        <Section>
           <button className={likeBtnClasses} onClick={likeBtnHandleClick}>
             <i className="fas fa-heart fa-2x"></i>
           </button>
-        </li>
-        <Link to={`/${id}`}>
-          <li>{name}</li>
-        </Link>
-        <li>{status}</li>
-      </ul>
-    </div>
+          <ProfilePicture className="lol" src={image} alt={name} />
+
+          <Status alive={status === "Alive"}>{char.status}</Status>
+          <LinkElem to={`/${id}`}>
+            <Name>{name}</Name>
+          </LinkElem>
+          <span>
+            In {episode.length} episode
+            {episode.length === 1 ? "" : "s"}
+          </span>
+          <Location>
+            <span>
+              <LocationTitle>Origin</LocationTitle> {origin.name}
+            </span>
+            <span>
+              <LocationTitle>Lives</LocationTitle>
+              {location.name}
+            </span>
+          </Location>
+        </Section>
+      )}
+    </Wrapper>
   );
 }
 
