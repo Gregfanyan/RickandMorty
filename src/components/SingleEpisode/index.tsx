@@ -1,46 +1,47 @@
-import React from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
+import * as S from "../../pages/CharacterPage/styles";
 import { IdProps } from "../../types/CharacterType";
-import { SingleEpisodeProps } from "../../types/EpisodeType";
+import EpisodeCharacters from "../EpisodeCharacters";
+//import { SingleEpisodeProps } from "../../types/EpisodeType";
 
-function SingleEpisode({ episodeData }: SingleEpisodeProps) {
+const Wrapper = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+`;
+
+function SingleEpisode({ episodeData, likeBtnHandleClick, likedList }: any) {
   const { id } = useParams<IdProps>();
-  const history = useHistory();
 
   const singleEpisode = episodeData?.episodes?.results.find(
     (episodeItem: IdProps) => episodeItem.id.toString() === id
   );
 
-  const { name, air_date, episode, characters } = singleEpisode || {};
-
-  function handleClick() {
-    if (!history) {
-      return <div>No Episode</div>;
-    } else {
-      history.push("/episode");
-    }
-  }
+  const { name, air_date, characters } = singleEpisode || {};
 
   return (
-    <div>
-      <button onClick={handleClick}>Back</button>
-      <ul>
-        <li>{name}</li>
-        <li>{episode}</li>
-        <li>{air_date}</li>
-        <ul>
+    <Wrapper>
+      <div>
+        <h1>Episode: {name}</h1>
+        {characters && <h3>played {characters.length} characters</h3>}
+        <h3>{air_date}</h3>
+        <S.CharacterSection>
           {characters &&
-            characters.map((e: any) => (
-              <li key={e.id}>
-                <Link to={`/characteritem/${e.id}`}>
-                  <div>{e.name}</div>
-                </Link>
-              </li>
+            characters.map((char: any) => (
+              <EpisodeCharacters
+                key={char.id}
+                char={char}
+                likeBtnHandleClick={likeBtnHandleClick}
+                likedList={likedList}
+              />
             ))}
-        </ul>
-      </ul>
-    </div>
+        </S.CharacterSection>
+      </div>
+    </Wrapper>
   );
 }
 

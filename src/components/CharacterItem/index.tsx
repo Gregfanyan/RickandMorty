@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-import { IdProps, SingleCharacterProps } from "../../types/CharacterType";
+import { IdProps/* , SingleCharacterProps */ } from "../../types/CharacterType";
+import * as S from "../SingleCharacter/styles";
 
-function CharacterItem({ character }: SingleCharacterProps) {
+function CharacterItem({ character, likedList, likeBtnHandleClick }: any) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
@@ -17,7 +18,8 @@ function CharacterItem({ character }: SingleCharacterProps) {
 
   const singleCharacter = characterArray?.find((char: any) => char.id === id);
 
-  const { name, image, status } = singleCharacter || {};
+  const { name, image, status, location, origin } = singleCharacter || {};
+  const isLiked = likedList.some((id: any) => id === singleCharacter?.id);
 
   function handleClick() {
     if (!history) {
@@ -28,19 +30,36 @@ function CharacterItem({ character }: SingleCharacterProps) {
   }
 
   return (
-    <div>
-      <button onClick={handleClick}>Back</button>
+    <S.Wrapper>
+      <S.ReturnButton onClick={handleClick}>
+        <i className="fas fa-long-arrow-alt-left fa-3x"></i>
+      </S.ReturnButton>
+      {singleCharacter && (
+        <S.Section>
+          <S.StyledButton
+            isLiked={!isLiked}
+            onClick={() => likeBtnHandleClick(id)}
+          >
+            <i className="fas fa-heart fa-2x"></i>
+          </S.StyledButton>
+          <S.ProfilePicture src={image} alt={name} />
 
-      <ul>
-        <li>
-          <img src={image} alt={name} />
-        </li>
-
-        <li>{name}</li>
-
-        <li>{status}</li>
-      </ul>
-    </div>
+          <S.Status alive={status === "Alive"}>
+            {singleCharacter.status}
+          </S.Status>
+          <S.Name>{name}</S.Name>
+          <S.Location>
+            <span>
+              <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
+            </span>
+            <span>
+              <S.LocationTitle>Lives</S.LocationTitle>
+              {location.name}
+            </span>
+          </S.Location>
+        </S.Section>
+      )}
+    </S.Wrapper>
   );
 }
 
