@@ -18,7 +18,7 @@ function CharacterItem({ character }: SingleCharacterProps) {
   const singleCharacter = characterArray?.find((char: any) => char.id === id);
 
   const { name, image, status } = singleCharacter || {};
-
+  console.log("singleCharacter", singleCharacter);
   function handleClick() {
     if (!history) {
       return <div>No Character</div>;

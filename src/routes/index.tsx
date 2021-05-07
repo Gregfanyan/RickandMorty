@@ -63,7 +63,13 @@ const Routes = () => {
         />
         <Route
           path="/episodeid/:id"
-          component={() => <SingleEpisode episodeData={data} />}
+          component={() => (
+            <SingleEpisode
+              episodeData={data}
+              likedList={likedList}
+              likeBtnHandleClick={likeBtnHandleClick}
+            />
+          )}
         />
         <Route
           path="/:id"

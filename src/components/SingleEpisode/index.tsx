@@ -1,10 +1,11 @@
-import React from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
+import * as S from "../../pages/CharacterPage/styles";
 import { IdProps } from "../../types/CharacterType";
-import { SingleEpisodeProps } from "../../types/EpisodeType";
+import EpisodeCharacters from "../EpisodeCharacters";
+//import { SingleEpisodeProps } from "../../types/EpisodeType";
 
-function SingleEpisode({ episodeData }: SingleEpisodeProps) {
+function SingleEpisode({ episodeData, likeBtnHandleClick, likedList }: any) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
@@ -13,7 +14,7 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
   );
 
   const { name, air_date, episode, characters } = singleEpisode || {};
-  console.log("characters", characters);
+
   function handleClick() {
     if (!history) {
       return <div>No Episode</div>;
@@ -29,16 +30,18 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
         <li>{name}</li>
         <li>{episode}</li>
         <li>{air_date}</li>
-        <ul>
+        {characters && <li>played {characters.length} characters</li>}
+        <S.CharacterSection>
           {characters &&
-            characters.map((e: any) => (
-              <li key={e.id}>
-                <Link to={`/characteritem/${e.id}`}>
-                  <div>{e.name}</div>
-                </Link>
-              </li>
+            characters.map((char: any) => (
+              <EpisodeCharacters
+                key={char.id}
+                char={char}
+                likeBtnHandleClick={likeBtnHandleClick}
+                likedList={likedList}
+              />
             ))}
-        </ul>
+        </S.CharacterSection>
       </ul>
     </div>
   );
