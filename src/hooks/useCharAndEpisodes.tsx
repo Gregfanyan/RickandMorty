@@ -33,6 +33,12 @@ const DATA_QUERY = gql`
           name
           image
           status
+          location {
+            name
+          }
+          origin {
+            name
+          }
         }
       }
     }

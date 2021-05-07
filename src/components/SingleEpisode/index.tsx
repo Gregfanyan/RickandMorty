@@ -13,7 +13,7 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
   );
 
   const { name, air_date, episode, characters } = singleEpisode || {};
-
+  console.log("characters", characters);
   function handleClick() {
     if (!history) {
       return <div>No Episode</div>;
