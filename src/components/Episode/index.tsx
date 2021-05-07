@@ -1,6 +1,6 @@
 import React from "react";
 
-import { EpisodeProps } from "../../types/EpisodeType";
+//import { EpisodeProps } from "../../types/EpisodeType";
 import * as S from "./styles";
 
 function Episode({ episodedata }: any) {
