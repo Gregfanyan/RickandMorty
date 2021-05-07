@@ -1,5 +1,4 @@
 import styled from "styled-components";
-//import { Link } from "react-router-dom";
 
 export const ProfilePicture = styled.img`
   width: 250px;
@@ -64,7 +63,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  width: 340px;
   margin: 10px auto;
 
   span {
@@ -106,7 +105,7 @@ export const EpisodeSection = styled.div`
   grid-template-columns: repeat( auto-fit, minmax(100px, 1fr));
   justify-items: center;
   align-items: center;
-  max-width: 426px;
+  width: 340px;
   max-height: 300px;
   margin: 10px auto;
   overflow: auto;
