@@ -1,15 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import * as S from "./styles";
+import styled from "styled-components";
+
+const LinkElem = styled(NavLink)`
+  &.active {
+    color: rgb(226, 226, 226);
+  }
+`;
+
 function Header() {
   return (
-    <div>
+    <S.NavBar>
       <Link to="/">
-        <div>character</div>
+        <S.Title>Title</S.Title>
       </Link>
-      <Link to="/episode">
-        <div>episode</div>
-      </Link>
-    </div>
+      <S.NavLinks>
+        <li>
+          <LinkElem exact to="/">
+            <S.MenuItem>character</S.MenuItem>
+          </LinkElem>
+        </li>
+        <li>
+          <LinkElem exact to="/episode">
+            <S.MenuItem>episode</S.MenuItem>
+          </LinkElem>
+        </li>
+      </S.NavLinks>
+    </S.NavBar>
   );
 }
 
