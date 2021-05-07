@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import localforage from "localforage";
 
-import { CharacterProps } from "../../types/CharacterType";
+//import { CharacterProps } from "../../types/CharacterType";
 import "../../App.css";
 import classNames from "classnames";
 import * as S from "./styles";
@@ -12,18 +10,8 @@ const LinkElem = styled(Link)`
   text-decoration: none;
 `;
 
-function Character({ char, setLikedList, isLiked }: any) {
-  //const [isLiked, setIsgLiked] = useState(false);
+function Character({ char, isLiked, likeBtnHandleClick }: any) {
   const { image, name, status, id, origin, location, episode } = char;
-
-  const likeBtnHandleClick = () => {
-    setLikedList((prev: string[]) => {
-      const newState = [...prev, id];
-      // localStorage.setItem('likedItem', JSON.stringify(newState))
-      localforage.setItem("likedItem", newState);
-      return newState;
-    });
-  };
 
   const likeBtnClasses = classNames({
     heart: true,
@@ -34,10 +22,13 @@ function Character({ char, setLikedList, isLiked }: any) {
     <S.Wrapper>
       {char && (
         <S.Section>
-          <button className={likeBtnClasses} onClick={likeBtnHandleClick}>
+          <button
+            className={likeBtnClasses}
+            onClick={() => likeBtnHandleClick(id)}
+          >
             <i className="fas fa-heart fa-2x"></i>
           </button>
-          <S.ProfilePicture className="lol" src={image} alt={name} />
+          <S.ProfilePicture src={image} alt={name} />
 
           <S.Status alive={status === "Alive"}>{char.status}</S.Status>
           <LinkElem to={`/${id}`}>

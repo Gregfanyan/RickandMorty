@@ -10,10 +10,29 @@ import Header from "../pages/Header";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
-import Footer from "../components/Footer";
+//import Footer from "../components/Footer";
 
 const Routes = () => {
   const data = useCharAndEpisodes();
+  const [likedList, setLikedList] = React.useState<string[]>([]);
+
+  useEffect(() => {
+    localforage.getItem("likedItem").then((val) => {
+      if (!val) {
+        setLikedList([]);
+      } else {
+        setLikedList(val as string[]);
+      }
+    });
+  }, []);
+
+  const likeBtnHandleClick = (id: any) => {
+    setLikedList((prev: string[]) => {
+      const newState = [...prev, id];
+      localforage.setItem("likedItem", newState);
+      return newState;
+    });
+  };
 
   return (
     <>
@@ -22,7 +41,13 @@ const Routes = () => {
         <Route
           exact
           path="/"
-          component={() => <CharacterPage character={data} />}
+          component={() => (
+            <CharacterPage
+              character={data}
+              likedList={likedList}
+              likeBtnHandleClick={likeBtnHandleClick}
+            />
+          )}
         />
         <Route
           path="/episode"
@@ -42,10 +67,16 @@ const Routes = () => {
         />
         <Route
           path="/:id"
-          component={() => <SingleCharacter character={data} />}
+          component={() => (
+            <SingleCharacter
+              character={data}
+              likedList={likedList}
+              likeBtnHandleClick={likeBtnHandleClick}
+            />
+          )}
         />
       </Switch>
-      <Footer />
+      {/*  <Footer /> */}
     </>
   );
 };

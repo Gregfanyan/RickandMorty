@@ -10,6 +10,8 @@ export const Footer = styled.div`
   align-items: center;
   width: 100%;
   min-height: 8vh;
+  bottom: 0;
+  top: 0;
   position: sticky;
 `;
 

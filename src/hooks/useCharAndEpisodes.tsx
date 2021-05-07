@@ -44,13 +44,13 @@ const useCharAndEpisodes = () => {
   const { loading, error, data } = useQuery(DATA_QUERY);
 
   useEffect(() => {
-    localforage.setItem("datas", data).then(() => {
+    localforage.setItem("value", data).then(() => {
       setPersistedData(data);
     });
   }, [data]);
 
   useEffect(() => {
-    localforage.getItem("datas").then((val) => {
+    localforage.getItem("value").then((val) => {
       setPersistedData(val);
     });
   }, []);
