@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
-import localforage from "localforage";
 
 const DATA_QUERY = gql`
   query {
@@ -46,20 +44,7 @@ const DATA_QUERY = gql`
 `;
 
 const useCharAndEpisodes = () => {
-  const [persistedData, setPersistedData] = useState<any>([]);
   const { loading, error, data } = useQuery(DATA_QUERY);
-
-  useEffect(() => {
-    localforage.setItem("value", data).then(() => {
-      setPersistedData(data);
-    });
-  }, [data]);
-
-  useEffect(() => {
-    localforage.getItem("value").then((val) => {
-      setPersistedData(val);
-    });
-  }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) {
@@ -67,7 +52,7 @@ const useCharAndEpisodes = () => {
     return <p>Error</p>;
   }
 
-  return persistedData;
+  return {data, loading};
 };
 
 export default useCharAndEpisodes;

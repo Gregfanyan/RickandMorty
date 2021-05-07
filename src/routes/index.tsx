@@ -13,9 +13,9 @@ import CharacterItem from "../components/CharacterItem";
 //import Footer from "../components/Footer";
 
 const Routes = () => {
-  const data = useCharAndEpisodes();
+  const { data, loading }: any = useCharAndEpisodes();
   const [likedList, setLikedList] = React.useState<string[]>([]);
-
+  console.log(loading);
   useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
       if (!val) {
@@ -46,6 +46,7 @@ const Routes = () => {
               character={data}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
+              loading={loading}
             />
           )}
         />
