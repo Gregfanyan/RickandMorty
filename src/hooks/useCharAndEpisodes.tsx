@@ -11,6 +11,12 @@ const DATA_QUERY = gql`
         id
         status
         image
+        location {
+          name
+        }
+        origin {
+          name
+        }
         episode {
           episode
         }
@@ -38,13 +44,13 @@ const useCharAndEpisodes = () => {
   const { loading, error, data } = useQuery(DATA_QUERY);
 
   useEffect(() => {
-    localforage.setItem("datas", data).then(() => {
+    localforage.setItem("value", data).then(() => {
       setPersistedData(data);
     });
   }, [data]);
 
   useEffect(() => {
-    localforage.getItem("datas").then((val) => {
+    localforage.getItem("value").then((val) => {
       setPersistedData(val);
     });
   }, []);

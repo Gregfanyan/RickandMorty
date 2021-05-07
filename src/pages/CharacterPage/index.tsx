@@ -1,18 +1,24 @@
 import React from "react";
 
 import Character from "../../components/Character";
-import { CharacterPageProps } from "../../types/CharacterType";
+//import { CharacterPageProps } from "../../types/CharacterType";
+import * as S from "./styles";
 
-function CharacterPage({ character }: CharacterPageProps) {
+function CharacterPage({ character, likedList, likeBtnHandleClick }: any) {
   return (
-    <div>
+    <S.CharacterSection>
       {character &&
         character.characters &&
         character.characters.results &&
         character.characters.results.map((char: any) => (
-          <Character key={char.id} char={char} />
+          <Character
+            key={char.id}
+            char={char}
+            isLiked={[...likedList].some((id) => id === char.id)}
+            likeBtnHandleClick={likeBtnHandleClick}
+          />
         ))}
-    </div>
+    </S.CharacterSection>
   );
 }
 

@@ -5,16 +5,15 @@
 
 .heart {
   position: absolute;
-  right: 0;
-  bottom: 5px;
-  top: 1;
+  right: 10px;
+  top: 10px;
   cursor: pointer;
   padding: none;
   border: none;
   outline: inherit;
   background: none;
   font-size-adjust: initial;
-  color: aliceblue;
+  color: yellow;
 }
 
 .liked {

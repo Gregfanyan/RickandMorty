@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const NavBar = styled.section`
+  overflow: hidden;
   box-shadow: -5px 7px 11px 2px black;
   background: rgb(87, 32, 155);
   border-radius: 20px;
@@ -9,6 +10,10 @@ export const NavBar = styled.section`
   align-items: center;
   width: 100%;
   min-height: 8vh;
+  position: sticky;
+  top: 0;
+  margin-bottom: 50px;
+  z-index: 1;
 
   @media screen and (max-width: 726px) {
     display: grid;
