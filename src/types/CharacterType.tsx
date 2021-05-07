@@ -6,7 +6,7 @@ export type CharacterType = {
 };
 
 export type CharacterPageProps = {
-  character: CharacterType[];
+  character: CharacterType[] | any;
 };
 
 export type SingleCharacterProps = {

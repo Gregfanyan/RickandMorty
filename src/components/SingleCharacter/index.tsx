@@ -1,16 +1,15 @@
 import React from "react";
+import { useParams, useHistory, Link } from "react-router-dom";
 
-import { useParams, useHistory } from "react-router-dom";
 import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 
 function SingleCharacter({ character }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
-
-  const singleCharacter = character.find(
+  const singleCharacter = character?.characters?.results.find(
     (char: IdProps) => char.id.toString() === id
   );
-  const { image, name, status, episode } = singleCharacter;
+  const { image, name, status, episode } = singleCharacter || {};
 
   function handleClick() {
     if (!history) {
@@ -19,8 +18,6 @@ function SingleCharacter({ character }: SingleCharacterProps) {
       history.push("/");
     }
   }
-
-  console.log("singleCharacter", singleCharacter);
 
   return (
     <div>
@@ -31,11 +28,16 @@ function SingleCharacter({ character }: SingleCharacterProps) {
         </li>
         <li>{name}</li>
         <li>{status}</li>
-        <li>
-          {episode.map((e: any) => (
-            <li key={e}>{e}</li>
-          ))}
-        </li>
+        <ul>
+          {episode &&
+            episode.map((e: any) => (
+              <li key={e.episode}>
+                <Link to={`/episodeitem/${e.episode}`}>
+                  <div>{e.episode}</div>
+                </Link>
+              </li>
+            ))}
+        </ul>
       </ul>
     </div>
   );

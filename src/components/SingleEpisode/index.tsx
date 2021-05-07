@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 import { IdProps } from "../../types/CharacterType";
 import { SingleEpisodeProps } from "../../types/EpisodeType";
@@ -8,11 +8,11 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const singleEpisode = episodeData.find(
+  const singleEpisode = episodeData?.episodes?.results.find(
     (episodeItem: IdProps) => episodeItem.id.toString() === id
   );
 
-  const { name, air_date, episode } = singleEpisode;
+  const { name, air_date, episode, characters } = singleEpisode || {};
 
   function handleClick() {
     if (!history) {
@@ -27,9 +27,18 @@ function SingleEpisode({ episodeData }: SingleEpisodeProps) {
       <button onClick={handleClick}>Back</button>
       <ul>
         <li>{name}</li>
-
         <li>{episode}</li>
         <li>{air_date}</li>
+        <ul>
+          {characters &&
+            characters.map((e: any) => (
+              <li key={e.id}>
+                <Link to={`/characteritem/${e.id}`}>
+                  <div>{e.name}</div>
+                </Link>
+              </li>
+            ))}
+        </ul>
       </ul>
     </div>
   );

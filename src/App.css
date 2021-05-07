@@ -1,0 +1,22 @@
+.imageBlock {
+  position: relative;
+  display: inline-block;
+}
+
+.heart {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  top: 1;
+  cursor: pointer;
+  padding: none;
+  border: none;
+  outline: inherit;
+  background: none;
+  font-size-adjust: initial;
+  color: aliceblue;
+}
+
+.liked {
+  color: red;
+}
