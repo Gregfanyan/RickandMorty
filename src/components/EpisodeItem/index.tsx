@@ -2,14 +2,18 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import * as S from "./styles";
-import { episodedProps } from "../../types/EpisodeType";
+import {
+  episodeProps,
+  EpisodeItemProps,
+  EpisodeType,
+} from "../../types/EpisodeType";
 
-function EpisodeItem({ episodeData }: any) {
-  const { episode } = useParams<episodedProps>();
+function EpisodeItem({ episodeData }: EpisodeItemProps) {
+  const { episode } = useParams<episodeProps>();
   const history = useHistory();
 
   const singleEpisode = episodeData?.episodes?.results.find(
-    (e: any) => e.episode === episode
+    (e: EpisodeType) => e.episode === episode
   );
 
   function handleClick() {

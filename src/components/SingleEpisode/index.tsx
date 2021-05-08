@@ -1,20 +1,16 @@
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
 
 import * as S from "../../pages/CharacterPage/styles";
 import { IdProps } from "../../types/CharacterType";
 import EpisodeCharacters from "../EpisodeCharacters";
-//import { SingleEpisodeProps } from "../../types/EpisodeType";
+import { Wrapper } from "./styles";
+import { SingleEpisodeProps } from "../../types/EpisodeType";
 
-const Wrapper = styled.main`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
-  justify-content: center;
-`;
-
-function SingleEpisode({ episodeData, likeBtnHandleClick, likedList }: any) {
+function SingleEpisode({
+  episodeData,
+  likeBtnHandleClick,
+  likedList,
+}: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
 
   const singleEpisode = episodeData?.episodes?.results.find(

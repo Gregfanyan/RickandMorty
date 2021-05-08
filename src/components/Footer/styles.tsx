@@ -11,15 +11,14 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 8vh;
   bottom: 0;
-  top: 0;
-  position: sticky;
+  margin-top: 30px;
 `;
 
 export const Title = styled.div`
   text-transform: uppercase;
   color: rgb(226, 226, 226);
-  letter-spacing: 5px;
-  font-size: 15px;
+  letter-spacing: 2px;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
   padding-left: 20px;

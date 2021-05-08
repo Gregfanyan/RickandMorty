@@ -1,12 +1,13 @@
+import { CharacterType } from "./CharacterType";
+
 export type EpisodeType = {
   air_date: string;
   name: string;
   episode: string;
   id: number;
-};
-
-export type EpisodePageProps = {
-  episode: EpisodeType[] | any;
+  characters: [];
+  location: [];
+  origin: [];
 };
 
 export type EpisodeProps = {
@@ -15,8 +16,30 @@ export type EpisodeProps = {
 
 export type SingleEpisodeProps = {
   episodeData: EpisodeType[] | any;
+  likeBtnHandleClick: Function;
+  likedList: string[];
 };
 
-export type episodedProps = {
+export type episodeProps = {
   episode: string;
 };
+
+export type dataProps = {
+  episode: EpisodeType;
+  characters: CharacterType;
+};
+
+export type EpisodePageProps = {
+  episode: dataProps | any;
+  loading: boolean;
+};
+
+export type EpisodeCharacterProps = {
+  char: CharacterType;
+  likeBtnHandleClick: Function;
+  likedList: string[];
+};
+
+export type EpisodeItemProps = {
+  episodeData: EpisodeType[] | any
+}

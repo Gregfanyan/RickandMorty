@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import localforage from "localforage";
 
@@ -10,12 +10,12 @@ import Header from "../pages/Header";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
-//import Footer from "../components/Footer";
+import { RouteProps } from "../types/CharacterType";
+import Footer from "../components/Footer";
 
 const Routes = () => {
-  const data = useCharAndEpisodes();
-  const [likedList, setLikedList] = React.useState<string[]>([]);
-
+  const { data, loading }: RouteProps | any = useCharAndEpisodes();
+  const [likedList, setLikedList] = useState<string[]>([]);
   useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
       if (!val) {
@@ -26,7 +26,7 @@ const Routes = () => {
     });
   }, []);
 
-  const likeBtnHandleClick = (id: any) => {
+  const likeBtnHandleClick = (id: string) => {
     setLikedList((prev: string[]) => {
       const newState = [...prev, id];
       localforage.setItem("likedItem", newState);
@@ -46,12 +46,13 @@ const Routes = () => {
               character={data}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
+              loading={loading}
             />
           )}
         />
         <Route
           path="/episode"
-          component={() => <EpisodePage episode={data} />}
+          component={() => <EpisodePage episode={data} loading={loading} />}
         />
         <Route
           path="/characteritem/:id"
@@ -88,7 +89,7 @@ const Routes = () => {
           )}
         />
       </Switch>
-      {/*  <Footer /> */}
+      {loading === false && <Footer />}
     </>
   );
 };

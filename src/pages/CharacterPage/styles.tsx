@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const CharacterSection = styled.div`
   min-width: 100%;
   display: grid;
@@ -18,5 +17,21 @@ export const CharacterSection = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 5px;
+  }
+`;
+
+export const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: wheel 3s linear infinite;
+
+  @keyframes wheel {
+    from {
+      transform: rotateZ(0deg);
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
   }
 `;
