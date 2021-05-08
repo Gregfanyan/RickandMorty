@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
+import { Loading } from "../../pages/CharacterPage/styles";
+
 import {
   IdProps,
   SingleCharacterProps,
@@ -12,6 +14,7 @@ function CharacterItem({
   character,
   likedList,
   likeBtnHandleClick,
+  loading,
 }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
@@ -37,36 +40,44 @@ function CharacterItem({
   }
 
   return (
-    <S.Wrapper>
-      <S.ReturnButton onClick={handleClick}>
-        <i className="fas fa-long-arrow-alt-left fa-3x"></i>
-      </S.ReturnButton>
-      {singleCharacter && (
-        <S.Section>
-          <S.StyledButton
-            isLiked={!isLiked}
-            onClick={() => likeBtnHandleClick(id)}
-          >
-            <i className="fas fa-heart fa-2x"></i>
-          </S.StyledButton>
-          <S.ProfilePicture src={image} alt={name} />
+    <>
+      {loading === false ? (
+        <S.Wrapper>
+          <S.ReturnButton onClick={handleClick}>
+            <i className="fas fa-long-arrow-alt-left fa-3x"></i>
+          </S.ReturnButton>
+          {singleCharacter && (
+            <S.Section>
+              <S.StyledButton
+                isLiked={!isLiked}
+                onClick={() => likeBtnHandleClick(id)}
+              >
+                <i className="fas fa-heart fa-2x"></i>
+              </S.StyledButton>
+              <S.ProfilePicture src={image} alt={name} />
 
-          <S.Status alive={status === "Alive"}>
-            {singleCharacter.status}
-          </S.Status>
-          <S.Name>{name}</S.Name>
-          <S.Location>
-            <span>
-              <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
-            </span>
-            <span>
-              <S.LocationTitle>Lives</S.LocationTitle>
-              {location.name}
-            </span>
-          </S.Location>
-        </S.Section>
+              <S.Status alive={status === "Alive"}>
+                {singleCharacter.status}
+              </S.Status>
+              <S.Name>{name}</S.Name>
+              <S.Location>
+                <span>
+                  <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
+                </span>
+                <span>
+                  <S.LocationTitle>Lives</S.LocationTitle>
+                  {location.name}
+                </span>
+              </S.Location>
+            </S.Section>
+          )}
+        </S.Wrapper>
+      ) : (
+        <Loading>
+          <i className="fas fa-spinner fa-5x"></i>
+        </Loading>
       )}
-    </S.Wrapper>
+    </>
   );
 }
 

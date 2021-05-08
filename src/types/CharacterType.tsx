@@ -21,6 +21,7 @@ export type SingleCharacterProps = {
   character: CharacterType[] | any;
   likedList: string[];
   likeBtnHandleClick: Function;
+  loading: boolean;
 };
 
 export type CharacterProps = {

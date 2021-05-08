@@ -18,6 +18,7 @@ export type SingleEpisodeProps = {
   episodeData: EpisodeType[] | any;
   likeBtnHandleClick: Function;
   likedList: string[];
+  loading: boolean;
 };
 
 export type episodeProps = {
@@ -41,5 +42,6 @@ export type EpisodeCharacterProps = {
 };
 
 export type EpisodeItemProps = {
-  episodeData: EpisodeType[] | any
-}
+  episodeData: EpisodeType[] | any;
+  loading: boolean;
+};
