@@ -1,3 +1,5 @@
+import { EpisodeType } from "./EpisodeType";
+
 export type CharacterType = {
   image: string;
   name: string;
@@ -24,4 +26,14 @@ export type CharacterProps = {
 
 export type IdProps = {
   id: string;
+};
+
+export type dataProps = {
+  episode: EpisodeType;
+  characters: CharacterType;
+};
+
+export type RouteProps = {
+  data: dataProps;
+  loading: boolean;
 };

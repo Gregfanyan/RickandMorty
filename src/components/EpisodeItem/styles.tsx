@@ -4,7 +4,7 @@ export const Wrapper = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 78vh;
 `;
 
 export const ReturnButton = styled.button`

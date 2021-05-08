@@ -10,7 +10,6 @@ function CharacterPage({
   likeBtnHandleClick,
   loading,
 }: any) {
-  console.log(loading);
   return (
     <>
       {loading === false ? (

@@ -25,8 +25,6 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
   animation: wheel 3s linear infinite;
-  transform-origin: center;
-  transform-box: fill-box;
 
   @keyframes wheel {
     from {

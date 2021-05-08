@@ -52,7 +52,7 @@ const useCharAndEpisodes = () => {
     return <p>Error</p>;
   }
 
-  return {data, loading};
+  return { data, loading };
 };
 
 export default useCharAndEpisodes;
