@@ -1,10 +1,14 @@
 import React from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-import { /* SingleCharacterProps, */ IdProps } from "../../types/CharacterType";
+import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 import * as S from "./styles";
 
-function SingleCharacter({ character, likedList, likeBtnHandleClick }: any) {
+function SingleCharacter({
+  character,
+  likedList,
+  likeBtnHandleClick,
+}: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
   const singleCharacter = character?.characters?.results.find(

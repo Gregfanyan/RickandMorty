@@ -5,9 +5,9 @@ export type EpisodeType = {
   name: string;
   episode: string;
   id: number;
-  characters: any;
-  location: any;
-  origin: any;
+  characters: [];
+  location: [];
+  origin: [];
 };
 
 export type EpisodeProps = {
@@ -16,6 +16,8 @@ export type EpisodeProps = {
 
 export type SingleEpisodeProps = {
   episodeData: EpisodeType[] | any;
+  likeBtnHandleClick: Function;
+  likedList: string[];
 };
 
 export type episodeProps = {
@@ -31,3 +33,13 @@ export type EpisodePageProps = {
   episode: dataProps | any;
   loading: boolean;
 };
+
+export type EpisodeCharacterProps = {
+  char: CharacterType;
+  likeBtnHandleClick: Function;
+  likedList: string[];
+};
+
+export type EpisodeItemProps = {
+  episodeData: EpisodeType[] | any
+}

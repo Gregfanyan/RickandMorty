@@ -11,6 +11,7 @@ export const Footer = styled.div`
   width: 100%;
   min-height: 8vh;
   bottom: 0;
+  margin-top: 30px;
 `;
 
 export const Title = styled.div`

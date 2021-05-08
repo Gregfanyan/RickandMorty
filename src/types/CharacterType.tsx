@@ -5,23 +5,28 @@ export type CharacterType = {
   name: string;
   status: string;
   id: number;
+  episode: [];
   location: any;
-  episode: any;
   origin: any;
 };
 
 export type CharacterPageProps = {
   character: CharacterType[] | any;
   likedList: string[];
-  setLikedList: any;
+  likeBtnHandleClick: Function;
+  loading: boolean;
 };
 
 export type SingleCharacterProps = {
   character: CharacterType[] | any;
+  likedList: string[];
+  likeBtnHandleClick: Function;
 };
 
 export type CharacterProps = {
   char: CharacterType;
+  likeBtnHandleClick: Function;
+  isLiked: boolean;
 };
 
 export type IdProps = {

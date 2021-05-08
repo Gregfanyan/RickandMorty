@@ -1,7 +1,7 @@
 import React from "react";
 
 import Character from "../../components/Character";
-//import { CharacterPageProps } from "../../types/CharacterType";
+import { CharacterPageProps, CharacterType } from "../../types/CharacterType";
 import * as S from "./styles";
 
 function CharacterPage({
@@ -9,7 +9,7 @@ function CharacterPage({
   likedList,
   likeBtnHandleClick,
   loading,
-}: any) {
+}: CharacterPageProps) {
   return (
     <>
       {loading === false ? (
@@ -17,11 +17,11 @@ function CharacterPage({
           {character &&
             character.characters &&
             character.characters.results &&
-            character.characters.results.map((char: any) => (
+            character.characters.results.map((char: CharacterType) => (
               <Character
                 key={char.id}
                 char={char}
-                isLiked={[...likedList].some((id) => id === char.id)}
+                isLiked={[...likedList].some((id: any) => id === char.id)}
                 likeBtnHandleClick={likeBtnHandleClick}
               />
             ))}

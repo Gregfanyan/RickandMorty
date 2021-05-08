@@ -1,25 +1,32 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-import { IdProps/* , SingleCharacterProps */ } from "../../types/CharacterType";
+import {
+  IdProps,
+  SingleCharacterProps,
+  CharacterType,
+} from "../../types/CharacterType";
 import * as S from "../SingleCharacter/styles";
 
-function CharacterItem({ character, likedList, likeBtnHandleClick }: any) {
+function CharacterItem({
+  character,
+  likedList,
+  likeBtnHandleClick,
+}: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const characters = character?.episodes?.results.map((a: any) =>
-    a.characters.map((char: any) => char)
+  const characters = character?.episodes?.results.map(
+    (a: CharacterType[] | any) => a.characters.map((char: []) => char)
   );
 
-  const characterArray = characters?.reduce((acc: any, curr: any) => {
+  const characterIdArray = characters?.reduce((acc: [], curr: []) => {
     return [...acc, ...curr];
   });
-
-  const singleCharacter = characterArray?.find((char: any) => char.id === id);
+  const singleCharacter = characterIdArray?.find((char: any) => char.id === id);
 
   const { name, image, status, location, origin } = singleCharacter || {};
-  const isLiked = likedList.some((id: any) => id === singleCharacter?.id);
+  const isLiked = likedList.some((id: string) => id === singleCharacter?.id);
 
   function handleClick() {
     if (!history) {

@@ -4,9 +4,13 @@ import * as S from "../../pages/CharacterPage/styles";
 import { IdProps } from "../../types/CharacterType";
 import EpisodeCharacters from "../EpisodeCharacters";
 import { Wrapper } from "./styles";
-//import { SingleEpisodeProps } from "../../types/EpisodeType";
+import { SingleEpisodeProps } from "../../types/EpisodeType";
 
-function SingleEpisode({ episodeData, likeBtnHandleClick, likedList }: any) {
+function SingleEpisode({
+  episodeData,
+  likeBtnHandleClick,
+  likedList,
+}: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
 
   const singleEpisode = episodeData?.episodes?.results.find(

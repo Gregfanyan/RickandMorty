@@ -1,9 +1,9 @@
 import React from "react";
 
-//import { EpisodeProps } from "../../types/EpisodeType";
+import { EpisodeProps } from "../../types/EpisodeType";
 import * as S from "./styles";
 
-function Episode({ episodedata }: any) {
+function Episode({ episodedata }: EpisodeProps) {
   const { name, air_date, episode, id, characters } = episodedata;
   return (
     <S.Wrapper>
