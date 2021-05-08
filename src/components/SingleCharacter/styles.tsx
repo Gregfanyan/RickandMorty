@@ -35,7 +35,11 @@ export const StyledButton = styled.button<{ isLiked: boolean }>`
   background: none;
   font-size-adjust: initial;
   color: yellow;
-  color: ${({ isLiked }) => (isLiked ? `#FBEF3C` : `#F34423`)};
+  color: ${({ isLiked }) => (isLiked ? `#FFFFFF` : `#F34423`)};
+
+  i {
+    text-shadow: 0 0 3px #f34423;
+  }
 `;
 
 export const Location = styled.div`
@@ -102,7 +106,7 @@ export const EpisodeSection = styled.div`
   border-radius: 30px;
   padding: 15px;
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   justify-items: center;
   align-items: center;
   width: 340px;

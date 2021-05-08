@@ -16,6 +16,7 @@ import Footer from "../components/Footer";
 const Routes = () => {
   const { data, loading }: RouteProps | any = useCharAndEpisodes();
   const [likedList, setLikedList] = useState<string[]>([]);
+
   useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
       if (!val) {
@@ -61,12 +62,13 @@ const Routes = () => {
               character={data}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
+              loading={loading}
             />
           )}
         />
         <Route
           path="/episodeitem/:episode"
-          component={() => <EpisodeItem episodeData={data} />}
+          component={() => <EpisodeItem episodeData={data} loading={loading} />}
         />
         <Route
           path="/episodeid/:id"
@@ -75,6 +77,8 @@ const Routes = () => {
               episodeData={data}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
+              loading={loading}
+
             />
           )}
         />
@@ -85,6 +89,7 @@ const Routes = () => {
               character={data}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
+              loading={loading}
             />
           )}
         />
