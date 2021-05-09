@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const NavBar = styled.section`
+  width: 100%;
   overflow: hidden;
   box-shadow: -5px 7px 11px 2px black;
   background: rgb(87, 32, 155);

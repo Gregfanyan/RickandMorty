@@ -17,9 +17,12 @@ export const Name = styled.h2`
 export const Status = styled.div<{ alive: boolean }>`
   text-align: center;
   margin-top: 20px;
-  font-size: 13px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: center;
-  width: 80px;
+  letter-spacing: 3px;
   padding: 5px;
   background: ${({ alive }) =>
     alive ? `rgba(76, 227, 100, 0.5)` : `rgba(227, 76, 76, 0.5)`};
@@ -65,6 +68,8 @@ export const Section = styled.section`
   border-radius: 30px;
   padding: 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   align-items: center;
   width: 350px;
@@ -74,7 +79,8 @@ export const Section = styled.section`
     margin-bottom: 10px;
   }
   @media screen and (max-width: 1024px) {
-    min-width: 300px;
+    max-width: 280px;
+    margin: 0 auto;
   }
 `;
 
@@ -82,6 +88,8 @@ export const Wrapper = styled.main`
   width: 90%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LinkElem = styled(Link)`

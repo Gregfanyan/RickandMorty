@@ -48,6 +48,7 @@ const Routes = () => {
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
+              setLikedList={setLikedList}
             />
           )}
         />
