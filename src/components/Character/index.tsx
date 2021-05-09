@@ -1,7 +1,12 @@
 import { CharacterProps } from "../../types/CharacterType";
 import * as S from "./styles";
 
-function Character({ char, isLiked, likeBtnHandleClick }: CharacterProps) {
+function Character({
+  char,
+  isLiked,
+  likeBtnHandleClick,
+  unLikeBtnHandleClick,
+}: CharacterProps) {
   const { image, name, status, id, origin, location, episode } = char || {};
 
   return (
@@ -10,7 +15,11 @@ function Character({ char, isLiked, likeBtnHandleClick }: CharacterProps) {
         <S.Section>
           <S.StyledButton
             isLiked={!isLiked}
-            onClick={() => likeBtnHandleClick(id)}
+            onClick={
+              !isLiked
+                ? () => likeBtnHandleClick(id)
+                : () => unLikeBtnHandleClick(id)
+            }
           >
             <i className="fas fa-heart fa-2x"></i>
           </S.StyledButton>

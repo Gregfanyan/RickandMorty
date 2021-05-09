@@ -15,6 +15,7 @@ export type CharacterPageProps = {
   likedList: string[];
   likeBtnHandleClick: Function;
   loading: boolean;
+  unLikeBtnHandleClick: Function;
 };
 
 export type SingleCharacterProps = {
@@ -22,12 +23,14 @@ export type SingleCharacterProps = {
   likedList: string[];
   likeBtnHandleClick: Function;
   loading: boolean;
+  unLikeBtnHandleClick: Function;
 };
 
 export type CharacterProps = {
   char: CharacterType;
   likeBtnHandleClick: Function;
   isLiked: boolean;
+  unLikeBtnHandleClick: Function;
 };
 
 export type IdProps = {

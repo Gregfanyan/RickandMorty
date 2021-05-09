@@ -9,6 +9,7 @@ function CharacterPage({
   likedList,
   likeBtnHandleClick,
   loading,
+  unLikeBtnHandleClick
 }: CharacterPageProps) {
   return (
     <>
@@ -23,6 +24,7 @@ function CharacterPage({
                 char={char}
                 isLiked={[...likedList].some((id: any) => id === char.id)}
                 likeBtnHandleClick={likeBtnHandleClick}
+                unLikeBtnHandleClick={unLikeBtnHandleClick}
               />
             ))}
         </S.CharacterSection>

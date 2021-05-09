@@ -12,6 +12,7 @@ function SingleEpisode({
   likeBtnHandleClick,
   likedList,
   loading,
+  unLikeBtnHandleClick,
 }: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
 
@@ -37,6 +38,7 @@ function SingleEpisode({
                     char={char}
                     likeBtnHandleClick={likeBtnHandleClick}
                     likedList={likedList}
+                    unLikeBtnHandleClick={unLikeBtnHandleClick}
                   />
                 ))}
             </S.CharacterSection>
