@@ -10,6 +10,7 @@ function SingleCharacter({
   likedList,
   likeBtnHandleClick,
   loading,
+  unLikeBtnHandleClick,
 }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
@@ -39,7 +40,11 @@ function SingleCharacter({
             <S.Section>
               <S.StyledButton
                 isLiked={!isLiked}
-                onClick={() => likeBtnHandleClick(singleCharacter.id)}
+                onClick={
+                  !isLiked
+                    ? () => likeBtnHandleClick(singleCharacter.id)
+                    : () => unLikeBtnHandleClick(singleCharacter.id)
+                }
               >
                 <i className="fas fa-heart fa-2x"></i>
               </S.StyledButton>

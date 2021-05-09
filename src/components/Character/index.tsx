@@ -1,18 +1,13 @@
-import localforage from "localforage";
-
 import { CharacterProps } from "../../types/CharacterType";
 import * as S from "./styles";
 
-function Character({ char, isLiked, likeBtnHandleClick, setLikedList }: any) {
+function Character({
+  char,
+  isLiked,
+  likeBtnHandleClick,
+  unLikeBtnHandleClick,
+}: CharacterProps) {
   const { image, name, status, id, origin, location, episode } = char || {};
-
-  const unLikeBtnHandleClick = (id: string) => {
-    setLikedList((prev: string[]) => {
-      const filteredList = prev.filter((filteredId) => filteredId !== id);
-      localforage.setItem("likedItem", filteredList);
-      return filteredList;
-    });
-  };
 
   return (
     <S.Wrapper>

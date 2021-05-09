@@ -19,6 +19,7 @@ export type SingleEpisodeProps = {
   likeBtnHandleClick: Function;
   likedList: string[];
   loading: boolean;
+  unLikeBtnHandleClick: Function;
 };
 
 export type episodeProps = {
@@ -39,6 +40,7 @@ export type EpisodeCharacterProps = {
   char: CharacterType;
   likeBtnHandleClick: Function;
   likedList: string[];
+  unLikeBtnHandleClick:Function
 };
 
 export type EpisodeItemProps = {

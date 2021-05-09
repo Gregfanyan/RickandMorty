@@ -12,6 +12,7 @@ function EpisodeCharacters({
   char,
   likeBtnHandleClick,
   likedList,
+  unLikeBtnHandleClick,
 }: EpisodeCharacterProps) {
   const isLiked = likedList.some((id: any) => id === char?.id);
   const { image, name, status, id, origin, location, episode } = char;
@@ -22,7 +23,11 @@ function EpisodeCharacters({
         <S.Section>
           <S.StyledButton
             isLiked={!isLiked}
-            onClick={() => likeBtnHandleClick(id)}
+            onClick={
+              !isLiked
+                ? () => likeBtnHandleClick(id)
+                : () => unLikeBtnHandleClick(id)
+            }
           >
             <i className="fas fa-heart fa-2x"></i>
           </S.StyledButton>

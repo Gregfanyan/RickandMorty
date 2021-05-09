@@ -35,6 +35,14 @@ const Routes = () => {
     });
   };
 
+  const unLikeBtnHandleClick = (id: string) => {
+    setLikedList((prev: string[]) => {
+      const filteredList = prev.filter((filteredId) => filteredId !== id);
+      localforage.setItem("likedItem", filteredList);
+      return filteredList;
+    });
+  };
+
   return (
     <>
       <Header />
@@ -48,7 +56,7 @@ const Routes = () => {
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
-              setLikedList={setLikedList}
+              unLikeBtnHandleClick={unLikeBtnHandleClick}
             />
           )}
         />
@@ -64,6 +72,7 @@ const Routes = () => {
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
+              unLikeBtnHandleClick={unLikeBtnHandleClick}
             />
           )}
         />
@@ -79,7 +88,7 @@ const Routes = () => {
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
-
+              unLikeBtnHandleClick={unLikeBtnHandleClick}
             />
           )}
         />
@@ -91,6 +100,7 @@ const Routes = () => {
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
+              unLikeBtnHandleClick={unLikeBtnHandleClick}
             />
           )}
         />
