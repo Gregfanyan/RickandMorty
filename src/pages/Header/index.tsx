@@ -1,6 +1,7 @@
 import React from "react";
 
 import * as S from "./styles";
+import Login from "../../components/Login";
 
 const Title = "Rick and Morty";
 function Header() {
@@ -19,6 +20,11 @@ function Header() {
           <S.LinkElem exact to="/episode">
             <S.MenuItem>episode</S.MenuItem>
           </S.LinkElem>
+        </li>
+        <li>
+          <S.MenuItem>
+            <Login />
+          </S.MenuItem>
         </li>
       </S.NavLinks>
     </S.NavBar>
