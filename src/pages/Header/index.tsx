@@ -1,11 +1,23 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import * as S from "./styles";
 import Login from "../../components/Login";
 import Logout from "../../components/Logout";
+import Profile from "../../components/Profile";
+import { Loading } from "../CharacterPage/styles";
 
 const Title = "Rick and Morty";
 function Header() {
+  const { isLoading } = useAuth0();
+
+  if (isLoading)
+    return (
+      <Loading>
+        <i className="fas fa-spinner fa-5x"></i>
+      </Loading>
+    );
+
   return (
     <S.NavBar>
       <S.TitleLink to="/">
@@ -30,6 +42,11 @@ function Header() {
         <li>
           <S.MenuItem>
             <Logout />
+          </S.MenuItem>
+        </li>
+        <li>
+          <S.MenuItem>
+            <Profile />
           </S.MenuItem>
         </li>
       </S.NavLinks>
