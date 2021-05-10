@@ -5,18 +5,13 @@ import * as S from "./styles";
 import Login from "../../components/Login";
 import Logout from "../../components/Logout";
 import Profile from "../../components/Profile";
-import { Loading } from "../CharacterPage/styles";
+import Signup from "../../components/Signup";
 
 const Title = "Rick and Morty";
 function Header() {
   const { isLoading } = useAuth0();
 
-  if (isLoading)
-    return (
-      <Loading>
-        <i className="fas fa-spinner fa-5x"></i>
-      </Loading>
-    );
+  if (isLoading) return <div>""</div>;
 
   return (
     <S.NavBar>
@@ -37,6 +32,11 @@ function Header() {
         <li>
           <S.MenuItem>
             <Login />
+          </S.MenuItem>
+        </li>
+        <li>
+          <S.MenuItem>
+            <Signup />
           </S.MenuItem>
         </li>
         <li>
