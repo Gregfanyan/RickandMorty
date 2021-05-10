@@ -6,8 +6,12 @@ export type EpisodeType = {
   episode: string;
   id: number;
   characters: [];
-  location: [];
-  origin: [];
+  location: {
+    name: string;
+  };
+  origin: {
+    name: string;
+  };
 };
 
 export type EpisodeProps = {
@@ -15,7 +19,16 @@ export type EpisodeProps = {
 };
 
 export type SingleEpisodeProps = {
-  episodeData: EpisodeType[] | any;
+  episodeData: EpisodeType[];
+  likeBtnHandleClick: Function;
+  likedList: string[];
+  loading: boolean;
+  unLikeBtnHandleClick: Function;
+};
+
+
+export type EpisodeItemsProps = {
+  episode: EpisodeType[];
   likeBtnHandleClick: Function;
   likedList: string[];
   loading: boolean;
@@ -32,7 +45,7 @@ export type dataProps = {
 };
 
 export type EpisodePageProps = {
-  episode: dataProps | any;
+  episode: EpisodeType[];
   loading: boolean;
 };
 
@@ -40,10 +53,10 @@ export type EpisodeCharacterProps = {
   char: CharacterType;
   likeBtnHandleClick: Function;
   likedList: string[];
-  unLikeBtnHandleClick:Function
+  unLikeBtnHandleClick: Function;
 };
 
 export type EpisodeItemProps = {
-  episodeData: EpisodeType[] | any;
+  episodeData: EpisodeType[];
   loading: boolean;
 };

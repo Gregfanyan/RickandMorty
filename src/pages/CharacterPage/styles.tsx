@@ -24,7 +24,7 @@ export const Loading = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: wheel 3s linear infinite;
+  animation: wheel 4s linear infinite;
 
   @keyframes wheel {
     from {

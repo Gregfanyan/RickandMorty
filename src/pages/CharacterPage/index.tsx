@@ -9,16 +9,14 @@ function CharacterPage({
   likedList,
   likeBtnHandleClick,
   loading,
-  unLikeBtnHandleClick
+  unLikeBtnHandleClick,
 }: CharacterPageProps) {
   return (
     <>
       {loading === false ? (
         <S.CharacterSection>
           {character &&
-            character.characters &&
-            character.characters.results &&
-            character.characters.results.map((char: CharacterType) => (
+            character.map((char: CharacterType) => (
               <Character
                 key={char.id}
                 char={char}

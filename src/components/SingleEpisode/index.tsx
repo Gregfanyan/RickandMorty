@@ -16,8 +16,8 @@ function SingleEpisode({
 }: SingleEpisodeProps) {
   const { id } = useParams<IdProps>();
 
-  const singleEpisode = episodeData?.episodes?.results.find(
-    (episodeItem: IdProps) => episodeItem.id.toString() === id
+  const singleEpisode = episodeData?.find(
+    (episodeItem) => episodeItem?.id.toString() === id
   );
 
   const { name, air_date, characters } = singleEpisode || {};

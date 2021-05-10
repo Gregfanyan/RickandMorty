@@ -43,7 +43,7 @@ const DATA_QUERY = gql`
   }
 `;
 
-const useCharAndEpisodes = () => {
+const useCharAndEpisodes: Function = (): {} => {
   const { loading, error, data } = useQuery(DATA_QUERY);
 
   if (loading) return <p>Loading...</p>;

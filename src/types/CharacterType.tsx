@@ -5,13 +5,17 @@ export type CharacterType = {
   name: string;
   status: string;
   id: number;
-  episode: [];
-  location: any;
-  origin: any;
+  episode: string[];
+  location: {
+    name: string;
+  };
+  origin: {
+    name: string;
+  };
 };
 
 export type CharacterPageProps = {
-  character: CharacterType[] | any;
+  character: CharacterType[];
   likedList: string[];
   likeBtnHandleClick: Function;
   loading: boolean;
@@ -19,7 +23,7 @@ export type CharacterPageProps = {
 };
 
 export type SingleCharacterProps = {
-  character: CharacterType[] | any;
+  character: CharacterType[];
   likedList: string[];
   likeBtnHandleClick: Function;
   loading: boolean;
@@ -42,7 +46,8 @@ export type dataProps = {
   characters: CharacterType;
 };
 
-export type RouteProps = {
-  data: dataProps;
+export type DataReturn = {
+  data: [];
   loading: boolean;
+  error: any;
 };
