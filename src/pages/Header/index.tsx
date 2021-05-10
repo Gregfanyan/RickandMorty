@@ -2,6 +2,7 @@ import React from "react";
 
 import * as S from "./styles";
 import Login from "../../components/Login";
+import Logout from "../../components/Logout";
 
 const Title = "Rick and Morty";
 function Header() {
@@ -24,6 +25,11 @@ function Header() {
         <li>
           <S.MenuItem>
             <Login />
+          </S.MenuItem>
+        </li>
+        <li>
+          <S.MenuItem>
+            <Logout />
           </S.MenuItem>
         </li>
       </S.NavLinks>
