@@ -14,8 +14,8 @@ function SingleCharacter({
 }: SingleCharacterProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
-  const singleCharacter = character?.characters?.results.find(
-    (char: IdProps) => char.id.toString() === id
+  const singleCharacter = character?.find(
+    (char: any) => char.id.toString() === id
   );
   const isLiked = likedList.some((id: any) => id === singleCharacter?.id);
   const { image, name, status, episode, origin, location } =
@@ -54,17 +54,14 @@ function SingleCharacter({
                 {singleCharacter.status}
               </S.Status>
               <S.Name>{name}</S.Name>
-              <span>
-                In {episode.length} episode
-                {episode.length === 1 ? "" : "s"}
-              </span>
+              <span>In {episode?.length} episode</span>
               <S.Location>
                 <span>
-                  <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
+                  <S.LocationTitle>Origin</S.LocationTitle> {origin?.name}
                 </span>
                 <span>
                   <S.LocationTitle>Lives</S.LocationTitle>
-                  {location.name}
+                  {location?.name}
                 </span>
               </S.Location>
             </S.Section>

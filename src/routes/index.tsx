@@ -10,11 +10,10 @@ import Header from "../pages/Header";
 import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
-import { RouteProps } from "../types/CharacterType";
 import Footer from "../components/Footer";
 
 const Routes = () => {
-  const { data, loading }: RouteProps | any = useCharAndEpisodes();
+  const { data, loading } = useCharAndEpisodes();
   const [likedList, setLikedList] = useState<string[]>([]);
 
   useEffect(() => {
@@ -52,7 +51,7 @@ const Routes = () => {
           path="/"
           component={() => (
             <CharacterPage
-              character={data}
+              character={data?.characters?.results}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
@@ -62,13 +61,15 @@ const Routes = () => {
         />
         <Route
           path="/episode"
-          component={() => <EpisodePage episode={data} loading={loading} />}
+          component={() => (
+            <EpisodePage episode={data?.episodes?.results} loading={loading} />
+          )}
         />
         <Route
           path="/characteritem/:id"
           component={() => (
             <CharacterItem
-              character={data}
+              episode={data?.episodes?.results}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
@@ -78,13 +79,18 @@ const Routes = () => {
         />
         <Route
           path="/episodeitem/:episode"
-          component={() => <EpisodeItem episodeData={data} loading={loading} />}
+          component={() => (
+            <EpisodeItem
+              episodeData={data?.episodes?.results}
+              loading={loading}
+            />
+          )}
         />
         <Route
           path="/episodeid/:id"
           component={() => (
             <SingleEpisode
-              episodeData={data}
+              episodeData={data?.episodes?.results}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}
@@ -96,7 +102,7 @@ const Routes = () => {
           path="/:id"
           component={() => (
             <SingleCharacter
-              character={data}
+              character={data?.characters?.results}
               likedList={likedList}
               likeBtnHandleClick={likeBtnHandleClick}
               loading={loading}

@@ -13,7 +13,7 @@ function EpisodeItem({ episodeData, loading }: EpisodeItemProps) {
   const { episode } = useParams<episodeProps>();
   const history = useHistory();
 
-  const singleEpisode = episodeData?.episodes?.results.find(
+  const singleEpisode = episodeData?.find(
     (e: EpisodeType) => e.episode === episode
   );
 

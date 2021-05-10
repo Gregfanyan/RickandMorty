@@ -10,9 +10,7 @@ function EpisodePage({ episode, loading }: EpisodePageProps) {
       {loading === false ? (
         <S.EpisodeSection>
           {episode &&
-            episode.episodes &&
-            episode.episodes.results &&
-            episode.episodes.results.map((episodedata: EpisodeType) => (
+            episode.map((episodedata: EpisodeType) => (
               <Episode key={episodedata.id} episodedata={episodedata} />
             ))}
         </S.EpisodeSection>

@@ -8,7 +8,6 @@ function Character({
   unLikeBtnHandleClick,
 }: CharacterProps) {
   const { image, name, status, id, origin, location, episode } = char || {};
-
   return (
     <S.Wrapper>
       {char && (

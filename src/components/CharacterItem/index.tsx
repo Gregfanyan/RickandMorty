@@ -3,27 +3,23 @@ import { useParams, useHistory } from "react-router-dom";
 
 import { Loading } from "../../pages/CharacterPage/styles";
 
-import {
-  IdProps,
-  SingleCharacterProps,
-  CharacterType,
-} from "../../types/CharacterType";
+import { IdProps, CharacterType } from "../../types/CharacterType";
+import { EpisodeItemsProps } from "../../types/EpisodeType";
 import * as S from "../SingleCharacter/styles";
 
 function CharacterItem({
-  character,
+  episode,
   likedList,
   likeBtnHandleClick,
   loading,
   unLikeBtnHandleClick,
-}: SingleCharacterProps) {
+}: EpisodeItemsProps) {
   const { id } = useParams<IdProps>();
   const history = useHistory();
 
-  const characters = character?.episodes?.results.map(
-    (a: CharacterType[] | any) => a.characters.map((char: []) => char)
+  const characters = episode?.map((currentEpisode: any) =>
+    currentEpisode.characters.map((char: CharacterType) => char)
   );
-
   const characterIdArray = characters?.reduce((acc: [], curr: []) => {
     return [...acc, ...curr];
   });

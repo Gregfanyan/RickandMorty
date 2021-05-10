@@ -5,6 +5,7 @@ import * as S from "./styles";
 
 function Episode({ episodedata }: EpisodeProps) {
   const { name, air_date, episode, id, characters } = episodedata;
+
   return (
     <S.Wrapper>
       <S.Section>
