@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { UserButton } from "../../pages/Header/styles";
 
 function Signup() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -7,7 +8,7 @@ function Signup() {
   return (
     <>
       {!isAuthenticated && (
-        <button
+        <UserButton
           onClick={() =>
             loginWithRedirect({
               screen_hint: "signup",
@@ -15,7 +16,7 @@ function Signup() {
           }
         >
           sign up
-        </button>
+        </UserButton>
       )}
     </>
   );

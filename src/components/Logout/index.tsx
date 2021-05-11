@@ -1,11 +1,24 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { UserButton } from "../../pages/Header/styles";
 
 function Logout() {
   const { logout, isAuthenticated } = useAuth0();
-
+  console.log(isAuthenticated);
   return (
-    <>{isAuthenticated && <button onClick={() => logout()}>logout</button>}</>
+    <>
+      {isAuthenticated && (
+        <UserButton
+          onClick={() =>
+            logout({
+              returnTo: window.location.origin,
+            })
+          }
+        >
+          logout
+        </UserButton>
+      )}
+    </>
   );
 }
 

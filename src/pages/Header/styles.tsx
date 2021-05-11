@@ -75,3 +75,42 @@ export const LinkElem = styled(NavLink)`
 export const TitleLink = styled(NavLink)`
   text-decoration: none;
 `;
+
+export const UserSection = styled.div`
+  display: flex;
+  padding-left: 4em;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 726px) {
+    padding-right: 4em;
+  }
+`;
+
+export const UserItem = styled.div`
+  padding: 5px;
+`;
+
+export const UserButton = styled.button`
+   display: inline-block;
+   padding: 0.6em 1.2em;
+   border: 0.1em solid #ffffff;
+   border-radius: 0.12em;
+   box-sizing: border-box;
+   text-decoration: none;
+   font-family: "Roboto", sans-serif;
+   font-weight: 300;
+   color: #ffffff;
+   text-align: center;
+   transition: all 0.2s;
+  background-color: #9a4ef1;
+
+  &:hover {
+     color: #000000;
+     background-color: #ffffff;
+  }
+  @media all and (max-width: 30em) {
+      display: block;
+      margin: 0.4em auto;
+  }
+`;
