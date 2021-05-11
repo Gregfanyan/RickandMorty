@@ -107,6 +107,7 @@ export const UserButton = styled.button`
   width: 90px;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
 
   &:hover {
      color: #000000;
