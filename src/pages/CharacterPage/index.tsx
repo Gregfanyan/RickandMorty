@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import Character from "../../components/Character";
 import { CharacterPageProps, CharacterType } from "../../types/CharacterType";
@@ -11,9 +12,11 @@ function CharacterPage({
   loading,
   unLikeBtnHandleClick,
 }: CharacterPageProps) {
+  const { isLoading } = useAuth0();
+
   return (
     <>
-      {loading === false ? (
+      {loading === false && !isLoading ? (
         <S.CharacterSection>
           {character &&
             character.map((char: CharacterType) => (

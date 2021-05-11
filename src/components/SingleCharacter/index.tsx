@@ -4,7 +4,6 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import { SingleCharacterProps, IdProps } from "../../types/CharacterType";
 import * as S from "./styles";
 import { Loading } from "../../pages/CharacterPage/styles";
-
 function SingleCharacter({
   character,
   likedList,

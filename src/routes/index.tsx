@@ -11,6 +11,7 @@ import useCharAndEpisodes from "../hooks/useCharAndEpisodes";
 import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
 import Footer from "../components/Footer";
+import ProfileDetails from "../components/ProfileDetails";
 
 const Routes = () => {
   const { data, loading } = useCharAndEpisodes();
@@ -65,6 +66,7 @@ const Routes = () => {
             <EpisodePage episode={data?.episodes?.results} loading={loading} />
           )}
         />
+        <Route path="/profiledetails" component={ProfileDetails} />
         <Route
           path="/characteritem/:id"
           component={() => (

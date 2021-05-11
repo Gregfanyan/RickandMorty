@@ -20,6 +20,7 @@ A web-based application that fetches the data from an external API and features 
 - Styled Components
 - Localforage
 - TypeScript
+- AUTH0
 
 ## Setup
 
@@ -36,6 +37,7 @@ List of features
 - Persist Favorite Character in Localforage
 - Remove Favorite Character from Localforage
 - Responsive Design
+- Login Logout
 - Deployed in Netlify
 
 ## Contact
