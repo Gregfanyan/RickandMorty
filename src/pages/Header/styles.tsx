@@ -94,8 +94,8 @@ export const UserItem = styled.div`
 export const UserButton = styled.button`
    display: inline-block;
    padding: 0.6em 1.2em;
-   border: 0.1em solid #ffffff;
-   border-radius: 0.12em;
+   border: none;
+   border-radius: 10px;
    box-sizing: border-box;
    text-decoration: none;
    font-family: "Roboto", sans-serif;
@@ -104,6 +104,9 @@ export const UserButton = styled.button`
    text-align: center;
    transition: all 0.2s;
   background-color: #9a4ef1;
+  width: 90px;
+  text-transform: uppercase;
+  font-weight: bold;
 
   &:hover {
      color: #000000;
