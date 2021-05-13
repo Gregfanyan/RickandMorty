@@ -13,7 +13,6 @@ const UserImage = styled.img`
 
 function Profile() {
   const { user, isAuthenticated } = useAuth0();
-
   return (
     <>
       {isAuthenticated && user && (
@@ -21,7 +20,7 @@ function Profile() {
           <div>
             {user.picture && (
               <UserImage
-                src={user.picture}
+                src={user?.picture}
                 width="40px"
                 height="40px"
                 alt={user.name}

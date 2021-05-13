@@ -16,7 +16,7 @@ function CharacterPage({
 
   return (
     <>
-      {loading === false && !isLoading ? (
+      {loading === false && isLoading === false ? (
         <S.CharacterSection>
           {character &&
             character.map((char: CharacterType) => (

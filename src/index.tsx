@@ -21,8 +21,6 @@ localforage.config({
 
 const clientID = process.env.REACT_APP_AUTH0_CLIENT_ID || "";
 const domain = process.env.REACT_APP_AUTH0_DOMAIN || "";
-console.log("clientID", clientID);
-console.log("domain", domain);
 
 ReactDOM.render(
   <Auth0Provider

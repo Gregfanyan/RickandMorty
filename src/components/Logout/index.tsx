@@ -4,7 +4,7 @@ import { UserButton } from "../../pages/Header/styles";
 
 function Logout() {
   const { logout, isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
+
   return (
     <>
       {isAuthenticated && (

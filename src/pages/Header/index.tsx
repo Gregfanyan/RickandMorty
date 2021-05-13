@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import * as S from "./styles";
 import Login from "../../components/Login";
@@ -8,6 +9,8 @@ import Signup from "../../components/Signup";
 
 const Title = "Rick and Morty";
 function Header() {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <S.NavBar>
       <S.TitleLink to="/">
@@ -20,11 +23,13 @@ function Header() {
           </S.LinkElem>
         </li>
 
-        <li>
-          <S.LinkElem exact to="/episode">
-            <S.MenuItem>episode</S.MenuItem>
-          </S.LinkElem>
-        </li>
+        {isAuthenticated && (
+          <li>
+            <S.LinkElem exact to="/episode">
+              <S.MenuItem>episode</S.MenuItem>
+            </S.LinkElem>
+          </li>
+        )}
       </S.NavLinks>
       <S.UserSection>
         <S.UserItem>
