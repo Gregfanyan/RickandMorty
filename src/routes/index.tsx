@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import localforage from "localforage";
 
@@ -18,8 +18,6 @@ const Routes = () => {
   const { loading } = useCharAndEpisodes();
   const [likedList, setLikedList] = useState<string[]>([]);
   const [data]: any = useChar();
-  //console.log("charAndEpisode", charAndEpisode);
-  console.log("data", data);
   useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
       if (!val) {

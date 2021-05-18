@@ -4,7 +4,7 @@ const initialState = {
   charAndEpisode: [],
 };
 
-const charReducer = (state = initialState, action) => {
+const charReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_CHARACTER_SUCCESS:
       return {
