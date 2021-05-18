@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import ApolloClient from "apollo-boost";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import localforage from "localforage";
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -9,9 +9,11 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
 import { baseUrl } from "./api/api";
 import GlobalStyles from "./GlobalStyles";
+const cache = new InMemoryCache();
 
 const client: any = new ApolloClient({
   uri: baseUrl,
+  cache,
 });
 
 localforage.config({

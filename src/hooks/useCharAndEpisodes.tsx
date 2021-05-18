@@ -1,7 +1,8 @@
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import { dataProps } from "../types/EpisodeType";
 
-const DATA_QUERY = gql`
+export const DATA_QUERY = gql`
   query {
     characters {
       results {
@@ -43,16 +44,10 @@ const DATA_QUERY = gql`
   }
 `;
 
-const useCharAndEpisodes: Function = (): {} => {
+const useCharAndEpisodes: Function = (): dataProps => {
   const { loading, error, data } = useQuery(DATA_QUERY);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) {
-    console.log(error);
-    return <p>Error</p>;
-  }
-
-  return { data, loading };
+  return { data, loading, error };
 };
 
 export default useCharAndEpisodes;

@@ -26,7 +26,6 @@ export type SingleEpisodeProps = {
   unLikeBtnHandleClick: Function;
 };
 
-
 export type EpisodeItemsProps = {
   episode: EpisodeType[];
   likeBtnHandleClick: Function;
@@ -39,9 +38,15 @@ export type episodeProps = {
   episode: string;
 };
 
-export type dataProps = {
-  episode: EpisodeType;
+export type CharAndEpisodeProps = {
+  episodes: EpisodeType;
   characters: CharacterType;
+};
+
+export type dataProps = {
+  data: CharAndEpisodeProps;
+  loading: boolean;
+  error: string | any;
 };
 
 export type EpisodePageProps = {
