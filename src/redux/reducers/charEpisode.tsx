@@ -11,6 +11,7 @@ const initialState = {
 const charAndEpisodeReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_CHARACTER_SUCCESS:
+      console.log("state", state);
       return {
         ...state,
         charAndEpisode: action.payload,

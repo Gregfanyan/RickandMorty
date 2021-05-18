@@ -13,7 +13,7 @@ function Episode({ episodedata }: EpisodeProps) {
           <h2>{name}</h2>
           <div>{episode}</div>
           <div>{air_date}</div>
-          <div>Played {characters.length} Characters</div>
+          <div>Played {characters?.length} Characters</div>
         </S.LinkElem>
       </S.Section>
     </S.Wrapper>

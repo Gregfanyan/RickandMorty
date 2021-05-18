@@ -12,11 +12,14 @@ import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
 import Footer from "../components/Footer";
 import ProfileDetails from "../components/ProfileDetails";
-
+import useData from "../hooks/useData";
+import { dataProps } from "../types/ReduxTypes";
 const Routes = () => {
-  const { data, loading } = useCharAndEpisodes();
+  const { datas, loading } = useCharAndEpisodes();
   const [likedList, setLikedList] = useState<string[]>([]);
-
+  const { data }: dataProps | any = useData();
+  //console.log("charAndEpisode", charAndEpisode);
+  console.log("data", data);
   useEffect(() => {
     localforage.getItem("likedItem").then((val) => {
       if (!val) {

@@ -5,6 +5,8 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import localforage from "localforage";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 import App from "./App";
 import { baseUrl } from "./api/api";
@@ -25,17 +27,19 @@ const clientID = process.env.REACT_APP_AUTH0_CLIENT_ID || "";
 const domain = process.env.REACT_APP_AUTH0_DOMAIN || "";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={domain}
-    clientId={clientID}
-    redirectUri={window.location.origin}
-  >
-    <ApolloProvider client={client}>
-      <Router>
-        <GlobalStyles />
-        <App />
-      </Router>
-    </ApolloProvider>
-  </Auth0Provider>,
+  <Provider store={store}>
+    <Auth0Provider
+      domain={domain}
+      clientId={clientID}
+      redirectUri={window.location.origin}
+    >
+      <ApolloProvider client={client}>
+        <Router>
+          <GlobalStyles />
+          <App />
+        </Router>
+      </ApolloProvider>
+    </Auth0Provider>
+  </Provider>,
   document.getElementById("root")
 );

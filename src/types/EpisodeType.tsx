@@ -43,12 +43,6 @@ export type CharAndEpisodeProps = {
   characters: CharacterType;
 };
 
-export type dataProps = {
-  data: CharAndEpisodeProps;
-  loading: boolean;
-  error: string | any;
-};
-
 export type EpisodePageProps = {
   episode: EpisodeType[];
   loading: boolean;

@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
-import { dataProps } from "../types/EpisodeType";
+import { dataProps } from "../types/ReduxTypes";
 
 export const DATA_QUERY = gql`
   query {

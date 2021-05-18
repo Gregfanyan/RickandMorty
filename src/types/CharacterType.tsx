@@ -41,13 +41,4 @@ export type IdProps = {
   id: string;
 };
 
-export type dataProps = {
-  episode: EpisodeType;
-  characters: CharacterType;
-};
 
-export type DataReturn = {
-  data: [];
-  loading: boolean;
-  error: any;
-};

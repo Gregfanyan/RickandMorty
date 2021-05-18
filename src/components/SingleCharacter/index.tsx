@@ -19,7 +19,7 @@ function SingleCharacter({
   const isLiked = likedList.some((id: any) => id === singleCharacter?.id);
   const { image, name, status, episode, origin, location } =
     singleCharacter || {};
-
+  
   function handleClick() {
     if (!history) {
       return <div>No Character</div>;
@@ -69,10 +69,10 @@ function SingleCharacter({
             <h1>Played Episodes:</h1>
             <S.EpisodeSection>
               {episode &&
-                episode.map((e: any) => (
+                episode?.map((e: any) => (
                   <S.EpisodeList key={e.episode}>
                     <Link to={`/episodeitem/${e.episode}`}>
-                      <div>{e.episode}</div>
+                      <div>{e?.episode}</div>
                     </Link>
                   </S.EpisodeList>
                 ))}

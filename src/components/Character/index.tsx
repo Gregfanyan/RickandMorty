@@ -30,11 +30,11 @@ function Character({
           {episode && <span>In {episode.length} episode</span>}
           <S.Location>
             <span>
-              <S.LocationTitle>Origin</S.LocationTitle> {origin.name}
+              <S.LocationTitle>Origin</S.LocationTitle> {origin?.name}
             </span>
             <span>
               <S.LocationTitle>Lives</S.LocationTitle>
-              {location.name}
+              {location?.name}
             </span>
           </S.Location>
         </S.Section>
