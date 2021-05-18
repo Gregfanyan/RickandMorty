@@ -14,8 +14,15 @@ export const fetchDataSuccess = (characters: any) => {
   };
 };
 
+export const fetchDataRequest = () => {
+  return {
+    type: FETCH_CHARACTER_SUCCESS,
+  };
+};
+
 export const fetchCharacters = () => {
   return (dispatch: Dispatch) => {
+    dispatch(fetchDataRequest());
     fetch("https://rickandmortyapi.com/graphql", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
