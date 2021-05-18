@@ -12,12 +12,12 @@ import EpisodeItem from "../components/EpisodeItem";
 import CharacterItem from "../components/CharacterItem";
 import Footer from "../components/Footer";
 import ProfileDetails from "../components/ProfileDetails";
-import useData from "../hooks/useData";
-import { dataProps } from "../types/ReduxTypes";
+import useChar from "../hooks/useData";
+//import { dataProps } from "../types/ReduxTypes";
 const Routes = () => {
-  const { datas, loading } = useCharAndEpisodes();
+  const { loading } = useCharAndEpisodes();
   const [likedList, setLikedList] = useState<string[]>([]);
-  const { data }: dataProps | any = useData();
+  const [data]: any = useChar();
   //console.log("charAndEpisode", charAndEpisode);
   console.log("data", data);
   useEffect(() => {
