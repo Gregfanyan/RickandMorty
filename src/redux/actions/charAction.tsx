@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { DATA_QUERY } from "../../hooks/useCharAndEpisodes";
 import { FETCH_CHARACTER_SUCCESS } from "../index";
-
+import { client } from "../store";
 export const fetchCharSuccess = (characters: any) => {
   return {
     type: FETCH_CHARACTER_SUCCESS,
@@ -9,20 +9,17 @@ export const fetchCharSuccess = (characters: any) => {
   };
 };
 
-export const fetchCharacters = () => {
-  return (dispatch: Dispatch) => {
-    fetch("https://rickandmortyapi.com/graphql", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: DATA_QUERY }),
-    })
-      .then((response) => response.json())
-      .then((res) => {
-        console.log("res", res);
-        dispatch(fetchCharSuccess(res));
+export const fetchCharacters =
+  () => (dispatch: Dispatch, getState: any, client: any) => {
+    dispatch({
+      type: "GET_CART_ATTEMPT",
+    });
+    client
+      .query({
+        query: DATA_QUERY,
+        fetchPolicy: "no-cache",
       })
-      .catch((error) => {
-        console.log(error);
+      .then((res: any) => {
+        dispatch(fetchCharSuccess(res.data));
       });
   };
-};

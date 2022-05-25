@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import localforage from "localforage";
-
 import CharacterPage from "../pages/CharacterPage";
 import EpisodePage from "../pages/EpisodePage";
 import SingleCharacter from "../components/SingleCharacter";
